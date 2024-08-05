@@ -1,0 +1,223 @@
+/* definitions */
+
+:root {
+    --verde_oscuro: #81967b;
+    --verde_claro: #aac59f;
+  }
+
+/* Apply a reset to remove all default margin and padding */
+* {
+    margin: 0;
+    padding: 0; 
+    box-sizing: border-box;
+    
+    
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;  /* Optional: Set a default font-family */
+
+}
+
+html {
+    font-size: 16px; /* 1rem = 16px */
+    margin: 0;
+    padding: 0;
+}
+
+/* Fonts */
+
+@font-face {
+    font-family: 'clutadella_light';
+    src: url('/assets/fonts/clutadella_light.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'basker_120';
+    src: url('./assets/fonts/basker_120.otf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* General tools */
+
+.italic-text {
+    font-style: italic;
+    color: var(--verde_claro); /* Change the color as needed */
+}
+
+.underlined-text {
+    text-decoration: underline;
+
+}
+
+.center-image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.body-title-green {
+    background-color: var(--verde_oscuro);
+    font-size: 2rem;
+    color: white;
+    font-family: 'clutadella_light';
+    text-align: center;    
+}
+
+.body-title-1 {
+    font-size: 3rem;
+    color: var(--verde_claro);
+    font-family: 'clutadella_light'; 
+    font-family: 'basker_120'; 
+    padding-right: 0; 
+    padding-left: 0;
+}
+
+.body-title-2 {
+    font-size: 3rem;
+    color: var(--verde_claro);
+    font-family: 'clutadella_light'; 
+    font-family: 'basker_120'; 
+    line-height: 1;
+    margin-bottom: 2rem;
+    padding-right: 0; 
+    padding-left: 0;
+}
+
+.body-title-3 {
+    font-size: 2.5rem;
+    color: var(--verde_claro);
+    font-family: 'clutadella_light'; 
+    font-family: 'basker_120'; 
+    line-height: 1;
+    margin-bottom: 2rem;
+    padding-right: 0; 
+    padding-left: 0;
+}
+
+.container-text {
+    margin-right: 18%; /* Ajustar el margen derecho de todo el diseño */
+    margin-left: 18%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-family: 'basker_120';
+    font-size: 1.5rem;
+    color: #706f6f;
+    text-align: justify;
+}
+
+.large-image {
+    display: block;
+}
+
+.small-image
+{
+    display: none;
+}
+.header-image {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* ------------------------- */
+
+/* NAVIGATION BAR */
+
+.custom-nav {
+    flex-wrap: nowrap; 
+}
+
+.custom-nav .dropdown-toggle::after {
+    display: none;  /* Hide the inverted triangle in the dropdown toggle */
+    
+}
+
+
+.custom-nav .nav-link {
+    color: white ;  /* Change text color to black */
+    height: 3rem;
+    font-size: 1.4rem; /* Nav text size*/
+    text-align: center;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    background-color: var(--verde_oscuro);
+}
+.dropdown-toggle:active {
+    background-color: var(--verde_oscuro); 
+
+}
+
+.custom-nav .dropdown-item {
+    color: #81967b ;  /* Change text color to black */
+}
+
+.custom-nav .dropdown-item:active,
+.custom-nav .dropdown-item.active {
+    background-color: white ;  /* Change to your desired color */
+
+}
+.nav .dropdown-menu {
+    min-width: 0 ;  /* Ensure the dropdown menu doesn't have a minimum width */
+    width: 100% ;   /* Set the width to 100% of its parent container */
+    box-sizing: border-box;   /* Include padding and border in the element's total width and height */
+    /* border-radius: 0;  Square border*/
+}
+
+.dropdown-item {
+    white-space: normal !important;  /* Allow text to wrap */
+    word-wrap: break-word !important;  /* Break long words */
+    overflow-wrap: break-word !important;  /* Break long words */
+    text-align: center;
+}
+
+/* ------------------------- */
+
+/* EXPERIMENT SECTION */
+
+.exp_img_2 {
+    background-image: url("h_exp_2_esc.webp"); 
+
+}
+
+/* RESPONSIVE 1024 x 600 */
+
+@media (max-width: 600px) {
+    .nav-item {
+        margin-bottom: 10px;  /* Ajusta este valor según el espacio deseado */
+    }
+
+    .header-image {
+        margin: 0;
+        width: 100%;
+        padding: 0;
+    }
+    .container-text
+    {
+        margin-right: 3%; /* Ajustar el margen derecho de todo el diseño */
+        margin-left: 3%;
+    }
+
+    .small-image {
+        display: block;
+    }
+
+    .large-image
+    {
+        display: none;
+    }
+
+    .custom-nav {
+        display: flex;
+        flex-direction: column;
+    }
+
+}
+
