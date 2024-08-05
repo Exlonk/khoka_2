@@ -3,10 +3,7 @@ from dash import dcc, html
 import dash_bootstrap_components as dbc
 import os
 
-app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP],
-         meta_tags=[
-        {"name": "viewport", "content": "width=device-width, initial-scale=1"},
-    ])
+app = JupyterDash(__name__,external_stylesheets=[dbc.themes.GRID])
 server = app.server
 # Define the navigation bar with the dropdown menu
 
