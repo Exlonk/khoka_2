@@ -1,5 +1,3 @@
 dash==2.16.1
 dash_bootstrap_components==1.6.0
-gunicorn
-pandas
-dash-tools
+gunicorn==20.1.0
