@@ -3,8 +3,11 @@ from dash import dcc, html
 import dash_bootstrap_components as dbc
 import os
 
-app = JupyterDash(__name__,external_stylesheets=[dbc.themes.GRID])
-server = app.server
+app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP],
+         meta_tags=[
+        {"name": "viewport", "content": "width=device-width, initial-scale=1"},
+    ])
+
 # Define the navigation bar with the dropdown menu
 
 header = [
@@ -64,11 +67,11 @@ portada =  dbc.Row(
 experimento = dbc.Container(
     dbc.Row([
                 html.Div("EXPERIMENTO", className="body-title-green"), 
-                html.Div(["Este estudio busca identificar los ", html.Span("compuestos químicos", id="compuestos_quimicos",className="underlined-text"),  " presentes en las cuatro variedades de coca cultivadas en el jardín del Proyecto Khoka. Para ello, se prepararon extractos con las hojas de cada variedad en diferentes ", html.Span("solventes", className="underlined-text") ," y se caracterizaron los metabolitos presentes en sus hojas mediante técnicas cromatográficas. Esto nos permitió realizar un análisis comparativo e identificar las similitudes y diferencias en la producción de estos compuestos entre las distintas variedades."],
+                html.Div(["Este estudio busca identificar los ", html.Span("compuestos químicos", id="compuestos_quimicos",className="underlined-text"),  " presentes en las cuatro variedades de coca cultivadas en el jardín del Proyecto Khoka. Para ello, se prepararon extractos con las hojas de cada variedad en diferentes ", html.Span("solventes", id="solvente",className="underlined-text") ," y se caracterizaron los metabolitos presentes en sus hojas mediante técnicas cromatográficas. Esto nos permitió realizar un análisis comparativo e identificar las similitudes y diferencias en la producción de estos compuestos entre las distintas variedades."],
                        style={'marginTop':'3rem','marginBottom':'4rem','paddingRight':'0rem','paddingLeft':'0rem'}),
                 html.Div("PASO 1: ",className="body-title-1",id="experimento_paso_1"),
                 html.Div("Extracción de los compuestos presentes en las hojas",className="body-title-2"),
-                html.Div(["El proceso de extracción consiste en mezclar hojas secas de cada variedad de coca con diversos ", html.Span("solventes", className="underlined-text"),", utilizando calor, para extraer y concentrar los componentes presentes en las hojas y así poder analizar una muestra mediante cromatografía de gases."],
+                html.Div(["El proceso de extracción consiste en mezclar hojas secas de cada variedad de coca con diversos ", html.Span("solventes", id="solvente1", className="underlined-text"),", utilizando calor, para extraer y concentrar los componentes presentes en las hojas y así poder analizar una muestra mediante cromatografía de gases."],
                        style={'marginTop':'1rem','marginBottom':'0rem','paddingRight':'0rem','paddingLeft':'0rem'}),
                 html.Img(src="/assets/h_exp_2_esc.webp",style={"width": "100%",'marginTop':'4rem','marginBottom':'1rem'},className="center-image large-image"),
                 html.Img(src="/assets/exp_2_m.webp",style={"width": "100%",'marginTop':'4rem','marginBottom':'1rem'},className="center-image small-image"),
@@ -174,7 +177,10 @@ tooltips = [
                 diferentes de la tabla periódica. Cada compuesto se caracteriza por una fórmula química \
                 específica que indica la composición exacta de sus elementos. Por ejemplo, el agua (H2O) \
                 está compuesta por dos átomos de hidrógeno y uno de oxígeno.", target="compuestos_quimicos"),
-    
+    dbc.Tooltip("Un solvente es una sustancia, generalmente líquida, que puede disolver otras sustancias sin \
+                alterarlas químicamente para formar una solución.", target="solvente")
+
+
 ]
 
 # Define the layout
@@ -217,5 +223,5 @@ app.layout= html.Div([
         ])
    ])
 if __name__ == "__main__":
-    app.run_server()
+    app.run_server(debug=True)
 
