@@ -8,6 +8,7 @@ app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP],
         {"name": "viewport", "content": "width=device-width, initial-scale=1"},
     ])
 
+server = app.server
 # Define the navigation bar with the dropdown menu
 
 header = [
@@ -263,5 +264,5 @@ app.layout= html.Div([
         ])
    ])
 if __name__ == "__main__":
-    app.run_server(debug=True)
+    app.run_server()
 
