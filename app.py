@@ -48,7 +48,10 @@ nav= dbc.Nav(
                         ),
                         dbc.DropdownMenu(
                             [
-                            # MENU
+                                dbc.DropdownMenuItem("MAPA DE METABOLITOS DE LA FAMILIA DE LA COCA", header=False,
+                                                     style={'fontSize': '1rem'}, href=f"#experimento_paso_1",external_link=True),
+                                dbc.DropdownMenuItem("CARACTERIZACIÓN QUÍMICA POR VARIEDADES", href=f"#pbe",external_link=True)
+
                             ],
                             nav=True,
                             in_navbar=True,
@@ -96,5 +99,5 @@ for page in dash.page_registry.values():
     print('url:', page['path'])
 
 if __name__ == "__main__":
-    app.run_server()
+    app.run_server(debug=True)
 
