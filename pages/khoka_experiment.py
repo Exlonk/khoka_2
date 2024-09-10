@@ -12,49 +12,6 @@ header = [
             html.Img(src=os.path.join(os.getcwd(),"/assets/header_m.webp"),className="header-image center-image small-image"),
          ]
 
-nav= dbc.Nav(
-                    [
-                        dbc.DropdownMenu(
-                            [
-                                dbc.DropdownMenuItem("¿Qué es la metabolómica?", header=False),
-                                dbc.DropdownMenuItem("Metabolismo y Metabolitos en Plantas", href="#"),
-                                dbc.DropdownMenuItem("Metabolitos", href="#"),
-                                dbc.DropdownMenuItem("Metabolismo primario", href="#"),
-                                dbc.DropdownMenuItem("Metabolismo secundario", href="#"),
-                                dbc.DropdownMenuItem("Metabolómica en la investigación de la coca", href="#"),
-                            ],
-                            nav=True,
-                            in_navbar=True,
-                            label="INTRODUCCIÓN",
-                        ),
-                        dbc.DropdownMenu(
-                            [
-                                dbc.DropdownMenuItem("PASO 1: Extracción de los compuestos presentes en las hojas", header=False,
-                                                     style={'fontSize': '1rem'}, href=f"#experimento_paso_1",external_link=True),
-                                dbc.DropdownMenuItem("Principios básicos de extracción química", href=f"#pbe",external_link=True),
-                                dbc.DropdownMenuItem("Extracción líquido-líquido simple", href=f"#extraccion_liquido",external_link=True),
-                                dbc.DropdownMenuItem("Características del disolvente de extracción", href=f"#car_sol",external_link=True),
-                                dbc.DropdownMenuItem("PASO 2: Análisis de compuestos: Cromatografía de Gases", href=f"#experimento_paso_2",external_link=True),
-                                dbc.DropdownMenuItem("¿Qué es una cromatografía?", href="#que_es_cro",external_link=True),
-                            ],
-                            nav=True,
-                            in_navbar=True,
-                            label="EXPERIMENTO",
-                            
-                            
-                        ),
-                        dbc.NavItem(dbc.NavLink("RESULTADOS", href="#")),
-                        dbc.NavItem(dbc.NavLink("METODOLOGÍA", href="#")),
-                        dbc.NavItem(dbc.NavLink("CONCLUSIONES", href="#")),
-                        dbc.NavItem(dbc.NavLink("GLOSARIO", href="#")),
-                        dbc.NavItem(dbc.NavLink("BIBLIOGRAFÍA", href="#")),
-                    ],
-                    style={'fontFamily': 'clutadella_light','backgroundColor': '#9abf99'},
-                    justified=True,
-                    pills=True,
-                    class_name='custom-nav'
-            )
-
 portada =  dbc.Row(
         [
             html.Img(src="/assets/h_exp_1.webp",style={"width": "100%",'marginTop':'3%','marginBottom':'3   %'},className="center-image"),

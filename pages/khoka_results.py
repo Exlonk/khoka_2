@@ -24,7 +24,7 @@ pagina_novo = False
 pagina_ipadu = False
 
 def treemap_layout():
-    pie=[dcc.Dropdown(['All Metabolites','Primary Metabolites','Secondary Metabolites'],'Secondary Metabolites',id='dropdown_treemap'),dcc.Graph(id="treemap",clear_on_unhover=True),dcc.Tooltip(id="graph-tooltip", direction='bottom')]
+    pie=[dcc.Dropdown(['All Metabolites','Primary Metabolites','Secondary Metabolites'],'All Metabolites',id='dropdown_treemap'),dcc.Graph(id="treemap",clear_on_unhover=True),dcc.Tooltip(id="graph-tooltip", direction='bottom')]
     return pie
     
 def area(variety,label):
@@ -36,10 +36,13 @@ def area(variety,label):
     return area_graph
 
 def description():
-    description_block= [dbc.Row(dbc.Col([html.Img(id='compound_image',className="compound_images",src="../assets/Cocaine.svg")],width={"size":12,"order":1})),
-                        dbc.Row(dbc.Col([html.Div("Cocaine",id='titulo_descripcion_compound',className="titulo_grafica_compound")],width={"size":12,"order":1})),
-                        dbc.Row(dbc.Col([html.P('Se conoce también como benzoilmetilecgonina. Es un alcaloide tipo tropano y fuerte estimulante. La cocaína tiene conocidos efectos vasoconstrictores y analgesicos locales',id="compound_description_text", className="text_description"
-                        )],width=12))]
+    description_block= [
+        dbc.Row(html.Div("Cocaine",id='titulo_descripcion_compound',className="titulo_grafica_compound")),
+        dbc.Row([dbc.Col(html.Img(id='compound_image',className="compound_images",src="../assets/structures/Cocaine.svg"),xs={"size":12},lg={"size":6},
+                        style={"padding-right": "1.5rem","padding-left": "1.5rem"}),
+        dbc.Col(html.P('Se conoce también como benzoilmetilecgonina. Es un alcaloide tipo tropano y fuerte estimulante. \
+                       La cocaína tiene conocidos efectos vasoconstrictores y analgesicos locales',
+                       id="compound_description_text", className="text_description compound_descriptions"),xs={"size":12},lg={"size":6})])]
     return description_block
 
 def classification():
@@ -61,49 +64,6 @@ header = [
             html.Img(src=os.path.join(os.getcwd(),"/assets/header_m.webp"),className="header-image center-image small-image"),
          ]
 
-nav= dbc.Nav(
-                    [
-                        dbc.DropdownMenu(
-                            [
-                                dbc.DropdownMenuItem("¿Qué es la metabolómica?", header=False),
-                                dbc.DropdownMenuItem("Metabolismo y Metabolitos en Plantas", href="#"),
-                                dbc.DropdownMenuItem("Metabolitos", href="#"),
-                                dbc.DropdownMenuItem("Metabolismo primario", href="#"),
-                                dbc.DropdownMenuItem("Metabolismo secundario", href="#"),
-                                dbc.DropdownMenuItem("Metabolómica en la investigación de la coca", href="#"),
-                            ],
-                            nav=True,
-                            in_navbar=True,
-                            label="INTRODUCCIÓN",
-                        ),
-                        dbc.DropdownMenu(
-                            [
-                                dbc.DropdownMenuItem("PASO 1: Extracción de los compuestos presentes en las hojas", header=False,
-                                                     style={'fontSize': '1rem'}, href=f"#experimento_paso_1",external_link=True),
-                                dbc.DropdownMenuItem("Principios básicos de extracción química", href=f"#pbe",external_link=True),
-                                dbc.DropdownMenuItem("Extracción líquido-líquido simple", href=f"#extraccion_liquido",external_link=True),
-                                dbc.DropdownMenuItem("Características del disolvente de extracción", href=f"#car_sol",external_link=True),
-                                dbc.DropdownMenuItem("PASO 2: Análisis de compuestos: Cromatografía de Gases", href=f"#experimento_paso_2",external_link=True),
-                                dbc.DropdownMenuItem("¿Qué es una cromatografía?", href="#que_es_cro",external_link=True),
-                            ],
-                            nav=True,
-                            in_navbar=True,
-                            label="EXPERIMENTO",
-                            
-                            
-                        ),
-                        dbc.NavItem(dbc.NavLink("RESULTADOS", href="#")),
-                        dbc.NavItem(dbc.NavLink("METODOLOGÍA", href="#")),
-                        dbc.NavItem(dbc.NavLink("CONCLUSIONES", href="#")),
-                        dbc.NavItem(dbc.NavLink("GLOSARIO", href="#")),
-                        dbc.NavItem(dbc.NavLink("BIBLIOGRAFÍA", href="#")),
-                    ],
-                    style={'fontFamily': 'clutadella_light','backgroundColor': '#9abf99'},
-                    justified=True,
-                    pills=True,
-                    class_name='custom-nav'
-            )
-
 portada =  dbc.Row(
         [
             html.Img(src="/assets/h_results.webp",style={"width": "100%",'marginTop':'3%','marginBottom':'3%'},className="center-image"),
@@ -114,12 +74,14 @@ resultado = dbc.Row([
     html.Div("RESULTADOS", className="body-title-green"),
     dbc.Accordion(
             [# MAPA DE METABOLITOS
-            dbc.AccordionItem([html.Div("Descubre todos los metabolitos que hemos encontrado en las plantas del jardín del Proyecto Khoka."),
-                               dbc.Row(dcc.Graph(figure=general_tree()))],                
-                               title="MAPA DE METABOLITOS DE LA FAMILIA DE LA COCA"
-            ),
+            # dbc.AccordionItem([html.Div("Descubre todos los metabolitos que hemos encontrado en las plantas del jardín del Proyecto Khoka."),
+            #                    dbc.Row(dcc.Graph(figure=general_tree())),]                
+            #                    title="MAPA DE METABOLITOS DE LA FAMILIA DE LA COCA"
+            # ),
             # CARACTERIZACION QUIMICA POR VARIEDADES
-            dbc.AccordionItem([html.Div("Explora el perfil químico de cada variedad de coca para conocer los metabolitos que contiene, cuáles tienen  actividad biológica y visualizar los cromatogramas de cada muestra estudiada."),
+            dbc.Row(html.Div("CARACTERIZACIÓN QUÍMICA DE LAS VARIEDADES DE LA COCA", style={'textAlign':'center',\
+                                                                                            'fontFamily':'baskervill','fontSize':'1.5rem','fontWeight':'bold','marginTop':'3%','marginBottom':'3%'})),
+            html.Div("Explora el perfil químico de cada variedad de coca para conocer los metabolitos que contiene, cuáles tienen  actividad biológica y visualizar los cromatogramas de cada muestra estudiada."),
             dbc.Row([dbc.Row([
                         html.A([html.P("Erythroxylum novogranatense"),html.P([html.P("var. ",className="var")," truxillense"])],href="#",
                         className="var_tru_text",id="trux")],className="var_tru_box"),
@@ -133,22 +95,19 @@ resultado = dbc.Row([
                         html.A([html.P("Erythroxylum novogranatense"),html.P([html.P("var. ",className="var")," novogranatense"])],href="#",
                         className="var_novo_text", id="novo")],className="var_novo_box")
                     ]),            
-            ],
-                title="CARACTERIZACIÓN QUÍMICA POR VARIEDAD"
-            ),
-            
+                
             # CLASSIFICACION DE METABOLITOS
-            dbc.AccordionItem([html.Div("Este gráfico muestra todos los metabolitos encontrados en esta variedad de coca. Puedes seleccionar entre metabolitos primarios y secundarios, conocer su estructura molecular y aprender sobre ellos."),
-            dbc.Row(html.Div(id='all_compounds_treemap',className="treemap")),
-            dbc.Row(html.Div(id='compound_description',className="compound_descriptions")),
-            ],
-                title="CLASIFICACIÓN DE METABOLITOS"
-            ),
+            dbc.Row(html.Div("CARACTERIZACIÓN QUÍMICA DE LAS VARIEDADES DE LA COCA", style={'textAlign':'center',\
+                                                                                            'fontFamily':'baskervill','fontSize':'1.5rem','fontWeight':'bold','marginTop':'3%','marginBottom':'3%'})),
+            html.Div("Este gráfico muestra todos los metabolitos encontrados en esta variedad de coca. Puedes seleccionar entre metabolitos primarios y secundarios, conocer su estructura molecular y aprender sobre ellos."),
+            dbc.Row(html.Div(html.Div(id='all_compounds_treemap',className="treemap"))),
+            dbc.Row(dbc.Col(html.Div(id='compound_description',className="compound_description"),style={"padding-right": "1rem","padding-left": "1rem"})),
+            
         
             # COMPUESTOS BIOACTIVOS
             dbc.AccordionItem([html.Div("Conoce los compuestos de esta variedad de coca que tienen actividad biológica, es decir, que pueden presentar efectos fisiológicos en el ser humano."),
             dbc.Row(html.Div(id='classification')),
-            ],
+            ], 
                 title="COMPUESTOS BIOACTIVOS"
             ),
 
@@ -256,7 +215,7 @@ def treemap_graph(value,n_clicks1,n_clicks2,n_clicks3,n_clicks4):
     fila_cabecera = list(variety) # Generar una lista con las cabeceras
     color_palet = {'(?)':'white'}
     for k in fila_cabecera[4:]:
-            opacidad = 0.6
+            opacidad = 1
             contador=1
             for i in [x for x in variety[k] if pd.isnull(x) == False and x != 'nan']:         
                 if k == "Saturados":
@@ -554,7 +513,7 @@ def classification_(n_clicks):
     color_palet = {'(?)':"white"}
     for k in fila_cabecera[4:]:
             contador=1
-            opacidad = 0.6
+            opacidad = 1
             for i in [x for x in variety[k] if pd.isnull(x) == False and x != 'nan']:         
                 if k == "Saturados":
                     clasificacion = [x for x in variety[k] if pd.isnull(x) == False and x != 'nan']
@@ -802,7 +761,7 @@ def display_hover(hoverData1,hoverData2,hoverData3):
             compound = str(hover_data1).replace(' ','_')
         y = hoverData1['points'][0]['bbox']['y0']
         direction = "bottom" if y > 1.5 else "top"
-        im_url = "/assets/"+ compound +'.svg'
+        im_url = "/assets/structures/"+ compound +'.svg'
     
         children = [
             html.Img(
@@ -811,7 +770,7 @@ def display_hover(hoverData1,hoverData2,hoverData3):
             ),
         ]
         
-        molecule_image="/assets/"+ compound +'.svg'
+        molecule_image="/assets/structures/"+ compound +'.svg'
         return hoverData1["points"][0]['label'], molecule_image, None, None, None, None
 
         
@@ -825,7 +784,7 @@ def display_hover(hoverData1,hoverData2,hoverData3):
             compound = str(hover_data2).replace(' ','_')
         y = hoverData2['points'][0]['bbox']['y0']
         direction = "bottom" if y > 1.5 else "top"
-        im_url = "/assets/"+ compound +'.svg'
+        im_url = "/assets/structures/"+ compound +'.svg'
     
         children = [
             html.Img(
@@ -834,7 +793,7 @@ def display_hover(hoverData1,hoverData2,hoverData3):
             ),
         ]
         
-        molecule_image="/assets/"+ compound +'.svg'
+        molecule_image="/assets/structures/"+ compound +'.svg'
 
         return hoverData2["points"][0]['label'], molecule_image, None, None, None, None
         
@@ -848,7 +807,7 @@ def display_hover(hoverData1,hoverData2,hoverData3):
             compound = str(hover_data3.replace(' ','_'))
         y = hoverData3['points'][0]['bbox']['y0']
         direction = "bottom" if y > 1.5 else "top"
-        im_url = "/assets/"+ compound +'.svg'
+        im_url = "/assets/structures/"+ compound +'.svg'
     
         children = [
             html.Img(
@@ -857,7 +816,7 @@ def display_hover(hoverData1,hoverData2,hoverData3):
             ),
         ]
         
-        molecule_image="/assets/"+ compound +'.svg'
+        molecule_image="/assets/structures/"+ compound +'.svg'
         return hoverData3["points"][0]['hovertext'], molecule_image,True, bbox, children, direction
 
 @callback(
@@ -869,15 +828,19 @@ def texto_descriptivo(children):
     variety = pd.read_csv(os.path.join(os.getcwd(),'khoka.csv'))
     variety_metabolitos_secundarios = list(variety['Secondary Metabolites'])
     variety_metabolitos_secundarios = [x for x in  variety_metabolitos_secundarios if pd.isnull(x) == False and x != 'nan']
-    relacion_metabolito_texto =  dict(list(zip(variety['Secondary Metabolites'], variety['Description Secondary Metabolites'])))
+    relacion_metabolito_texto_s =  dict(list(zip(variety['Secondary Metabolites'], variety['Description Secondary Metabolites'])))
+    
+    variety_metabolitos_primarios = list(variety['Primary Metabolites'])
+    variety_metabolitos_primarios = [x for x in  variety_metabolitos_primarios if pd.isnull(x) == False and x != 'nan']
+    relacion_metabolito_texto_p =  dict(list(zip(variety['Primary Metabolites'], variety['Description Primary Metabolites'])))
     
     # cambio español ingles
     children = diccionario_esp_ing[children]
 
     if children in variety_metabolitos_secundarios:
-        texto_metabolito = relacion_metabolito_texto[children]
+        texto_metabolito = relacion_metabolito_texto_s[children]
     else:
-        texto_metabolito = ' '
+        texto_metabolito = relacion_metabolito_texto_p[children]
 
     return texto_metabolito
 
