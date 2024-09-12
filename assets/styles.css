@@ -32,12 +32,22 @@ body {
 }
 
 @font-face {
-    font-family: 'basker_120';
-    src: url('./assets/fonts/basker_120.otf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
+    font-family: 'basker';
+    src: url('/assets/fonts/basker.ttf');
+
 }
 
+@font-face {
+    font-family: 'basker_120';
+    src: url('/assets/fonts/basker_120.otf');
+
+}
+
+@font-face {
+    font-family: 'basker_italic';
+    src: url('/assets/fonts/basker_120_italic.otf');
+
+}
 /* General tools */
 
 .italic-text {
@@ -66,21 +76,17 @@ body {
 }
 
 .body-title-1 {
-    font-size: 3rem;
+    font-size: 2.8rem;
     color: var(--verde_claro);
     font-family: 'basker_120'; 
-    padding-right: 0; 
-    padding-left: 0;
+
 }
 
 .body-title-2 {
-    font-size: 3rem;
+    font-size: 2.6rem;
     color: var(--verde_claro);
     font-family: 'basker_120'; 
     line-height: 1;
-    margin-bottom: 2rem;
-    padding-right: 0; 
-    padding-left: 0;
 }
 
 .body-title-3 {
@@ -89,21 +95,36 @@ body {
     font-family: 'basker_120'; 
     line-height: 1;
     margin-bottom: 2rem;
-    padding-right: 0; 
-    padding-left: 0;
 }
 
 
 .container-text {
+    margin-right: 17%; /* Ajustar el margen derecho de todo el diseño */
+    margin-left: 17%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-family: 'basker_120';
+    font-size: 1.4rem;
+    color: #706f6f;
+    text-align: left;
+}
+
+.container-results {
     margin-right: 22%; /* Ajustar el margen derecho de todo el diseño */
     margin-left: 22%;
     margin-top: 2rem;
     margin-bottom: 2rem;
     font-family: 'basker_120';
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     color: #706f6f;
-    text-align: justify;
+    text-align: center;
+    line-height: 1.6;
 }
+
+.subcontainer-results {
+    padding-left: 6rem;
+    padding-right: 6rem;    
+    }
 
 .large-image {
     display: block;
@@ -212,6 +233,14 @@ body {
 
 /* RESULTS SECTION */
 
+.results_title {
+    text-align: center;
+    font-family: 'basker_120';
+    font-size: 2rem;
+    color:var(--verde_claro);
+
+}
+
 .accordion-button {
     background-color: var(--verde_claro);
     color: white;
@@ -228,34 +257,18 @@ body {
     padding: 0;
 }
 
-
-.var_tru_box {
-    height:6rem;
-    background-color: #455e3c;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-
 .var_tru_text {
     text-decoration: none;
     color: white;
     text-align:center;
     font-family: storm-italic;
-    font-size: 1.7rem;
+    font-size: 0.80rem;
+    font-family: 'basker_italic';
+    line-height: 1.5;
 }
 
 .var_tru_box:hover{
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
-}
-
-.var_ipadu_box {
-    height:6rem;
-    background-color: #737634;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .var_ipadu_box:hover{
@@ -267,15 +280,9 @@ body {
     color: white;
     text-align:center;
     font-family: storm-italic;
-    font-size: 1.7rem;
-}
-
-.var_coca_box {
-    height:6rem;
-    background-color: #678849;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    font-size: 0.8rem;
+    font-family: 'basker_italic';
+    line-height: 1.5;
 }
 
 .var_coca_box:hover{
@@ -296,11 +303,13 @@ body {
     color: white;
     text-align:center;
     font-family: storm-italic;
-    font-size: 1.7rem;
+    font-size: 0.8rem;
+    font-family: 'basker_italic';
+    line-height: 1.5;
 }
 
 .var_novo_box {
-    height:6rem;
+    height:3rem;
     background-color: #95a823;
     display: flex;
     align-items: center;
@@ -316,11 +325,15 @@ body {
     color: white;
     text-align:center;
     font-family: storm-italic;
-    font-size: 1.7rem;
+    font-size: 0.8rem;
+    font-family: 'basker_italic';
+    line-height: 1.5;
 }
 
 .treemap {
     width: 100%;
+    padding: 0;
+    margin: 0;
 }
 
 .compound_images {
@@ -335,10 +348,24 @@ body {
     padding: 0;
     margin-left: 0rem; 
     margin-right: 0rem; 
+    font-size: 1.2rem;
+    font-family: "basker_120";  
+    text-align: left; /* Justificar texto */
+  
+}
+
+.titulo_grafica_compound {
     font-size: 2rem;
-    font-family: storm-light;
-    text-align: justify; /* Justificar texto */
-    text-justify: inter-word; /* Justificar texto */
+    text-align: left;
+    padding: 1rem;
+    font-family: "basker_120";
+    line-height: 1.2;
+}
+
+.compound_description {
+    padding: 2.3rem;
+    border: 1px solid black;
+    
 }
 
 .compound_descriptions {
@@ -360,22 +387,22 @@ body {
         padding: 0;
     }
     .body-title-1 {
-        font-size: 3rem;
+        font-size: 2.5rem;
         text-align: left;
         color: var(--verde_claro);
         font-family: 'basker_120'; 
-        padding-right: 0; 
-        padding-left: 0;
-        margin-bottom: 3rem;
     }
 
     .body-title-2 {
+        font-size: 2.2rem;
         text-align: left;
+        font-family: 'basker_120'; 
     }
 
     .body-title-3 {
         font-size: 1.9rem;
         text-align: left;
+        font-family: 'basker_120'; 
     }
 
     .container-text
@@ -385,11 +412,30 @@ body {
         margin-top: 2rem;
         margin-bottom: 2rem;
         font-family: 'basker_120';
-        font-size: 1.5rem;
+        font-size: 1.1rem;
         color: #706f6f;
-        text-align: justify;
+        text-align: left;
     }
 
+    .container-results 
+    {
+        margin-right: 10%; /* Ajustar el margen derecho de todo el diseño */
+        margin-left: 10%;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        font-family: 'basker_120';
+        font-size: 1.1rem;
+        color: #706f6f;
+        text-align: center;
+        padding-left: 0;
+        padding-right: 0;
+        line-height: 2;
+    }
+
+    .subcontainer-results {
+    padding-left: 0;
+    padding-right: 0;    
+    }
     .small-image {
         display: block;
     }
