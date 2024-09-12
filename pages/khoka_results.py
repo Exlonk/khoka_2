@@ -17,8 +17,8 @@ diccionario_ing_esp = dict(list(zip(df['All Metabolites'],df['Traduccion'])))
 diccionario_esp_ing = dict(list(zip(df['Traduccion'],df['All Metabolites'])))
 ### Fin Diccionario
 
-pagina_khoka = True
-pagina_trux = False
+pagina_khoka = False
+pagina_trux = True
 pagina_coca = False
 pagina_novo = False
 pagina_ipadu = False
@@ -28,9 +28,10 @@ def treemap_layout():
     return pie
     
 def area(variety,label):
+   
     if variety !=  'khoka':
          dropdown_area=os.listdir(os.path.join(os.getcwd(),'Varieties/'+variety))
-         area_graph=[dbc.Row([dbc.Col("Cromatografía de Gases",id="titulo_cromatografia",className="titulos_graficas titulo_metabolitos")]),dcc.Dropdown(dropdown_area,dropdown_area[0],id='dropdown_area'),dcc.Graph(id='area',clear_on_unhover=True),dcc.Tooltip(id="graph-tooltip", direction='bottom')]
+         area_graph=[dbc.Row([dbc.Col(id="titulo_cromatografia",className="titulos_graficas titulo_metabolitos")]),dcc.Dropdown(dropdown_area,dropdown_area[0],id='dropdown_area'),dcc.Graph(id='area',clear_on_unhover=True),dcc.Tooltip(id="graph-tooltip", direction='bottom')]
     else:
         area_graph = [html.Div(id='area')]
     return area_graph
@@ -38,8 +39,9 @@ def area(variety,label):
 def description():
     description_block= [
         dbc.Row(html.Div("Cocaine",id='titulo_descripcion_compound',className="titulo_grafica_compound")),
+        dbc.Row(style={'height':'1rem'}),
         dbc.Row([dbc.Col(html.Img(id='compound_image',className="compound_images",src="../assets/structures/Cocaine.svg"),xs={"size":12},lg={"size":6},
-                        style={"padding-right": "1.5rem","padding-left": "1.5rem"}),
+                        ),
         dbc.Col(html.P('Se conoce también como benzoilmetilecgonina. Es un alcaloide tipo tropano y fuerte estimulante. \
                        La cocaína tiene conocidos efectos vasoconstrictores y analgesicos locales',
                        id="compound_description_text", className="text_description compound_descriptions"),xs={"size":12},lg={"size":6})])]
@@ -70,58 +72,75 @@ portada =  dbc.Row(
         ]
                 )
 
-resultado = dbc.Row([
+resultado = [dbc.Row([
+    dbc.Row(style={'height':'3rem'}),
     html.Div("RESULTADOS", className="body-title-green"),
-    dbc.Accordion(
-            [# MAPA DE METABOLITOS
-            # dbc.AccordionItem([html.Div("Descubre todos los metabolitos que hemos encontrado en las plantas del jardín del Proyecto Khoka."),
-            #                    dbc.Row(dcc.Graph(figure=general_tree())),]                
-            #                    title="MAPA DE METABOLITOS DE LA FAMILIA DE LA COCA"
-            # ),
+    dbc.Container(
+            [
             # CARACTERIZACION QUIMICA POR VARIEDADES
-            dbc.Row(html.Div("CARACTERIZACIÓN QUÍMICA DE LAS VARIEDADES DE LA COCA", style={'textAlign':'center',\
-                                                                                            'fontFamily':'baskervill','fontSize':'1.5rem','fontWeight':'bold','marginTop':'3%','marginBottom':'3%'})),
-            html.Div("Explora el perfil químico de cada variedad de coca para conocer los metabolitos que contiene, cuáles tienen  actividad biológica y visualizar los cromatogramas de cada muestra estudiada."),
-            dbc.Row([dbc.Row([
-                        html.A([html.P("Erythroxylum novogranatense"),html.P([html.P("var. ",className="var")," truxillense"])],href="#",
-                        className="var_tru_text",id="trux")],className="var_tru_box"),
-                    dbc.Row([  
-                        html.A([html.P("Erythroxylum coca"),html.P([html.P("var. ",className="var")," ipadu"])],href="#",
-                        className="var_ipadu_text", id="ipadu")],className="var_ipadu_box"),
-                    dbc.Row([ 
-                        html.A([html.P("Erythroxylum coca"),html.P([html.P("var. ",className="var")," coca"])],href="#",
-                        className="var_coca_text", id="coca")],className="var_coca_box"),
-                    dbc.Row([ 
-                        html.A([html.P("Erythroxylum novogranatense"),html.P([html.P("var. ",className="var")," novogranatense"])],href="#",
-                        className="var_novo_text", id="novo")],className="var_novo_box")
-                    ]),            
-                
-            # CLASSIFICACION DE METABOLITOS
-            dbc.Row(html.Div("CARACTERIZACIÓN QUÍMICA DE LAS VARIEDADES DE LA COCA", style={'textAlign':'center',\
-                                                                                            'fontFamily':'baskervill','fontSize':'1.5rem','fontWeight':'bold','marginTop':'3%','marginBottom':'3%'})),
-            html.Div("Este gráfico muestra todos los metabolitos encontrados en esta variedad de coca. Puedes seleccionar entre metabolitos primarios y secundarios, conocer su estructura molecular y aprender sobre ellos."),
-            dbc.Row(html.Div(html.Div(id='all_compounds_treemap',className="treemap"))),
-            dbc.Row(dbc.Col(html.Div(id='compound_description',className="compound_description"),style={"padding-right": "1rem","padding-left": "1rem"})),
-            
-        
+            dbc.Row(style={'height':'6rem'}),
+            dbc.Row("CARACTERIZACIÓN QUÍMICA DE LAS VARIEDADES DE LA COCA",className="results_title",id="caracterizacion"),
+            dbc.Row(style={'height':'2.4rem'}),
+            dbc.Row("Explora el perfil químico de cada variedad de coca para conocer los metabolitos que contiene,\
+                     cuáles tienen  actividad biológica y visualizar los cromatogramas de cada muestra estudiada.",style={'textAlign':'center'}),
+            dbc.Row(style={'height':'2.4rem'})],className="subcontainer-results"),
+    dbc.Row([
+        dbc.Col(html.Img(src="/assets/trux.png", height="150px"), width=3,style={"padding":0}),
+        dbc.Col(html.Img(src="/assets/ipadu.png", height="150px"), width=3,style={"padding":0}),
+        dbc.Col(html.Img(src="/assets/coca.png", height="150px"), width=3,style={"padding":0}),
+        dbc.Col(html.Img(src="/assets/novo.png", height="150px"), width=3,style={"padding":0})
+    ], justify="around"),
+    dbc.Row(style={'height':'1rem'}),
+    dbc.Row([dbc.Col([
+                        html.A(["Erythroxylum novogranatense ",html.Span(" var. ",className="var")," truxillense"],href=f"#all_compounds_treemap",
+                        className="var_tru_text",id="trux", n_clicks=0)],id="trux_box",className="var_tru_box"),
+                    
+                    dbc.Col([  
+                        html.A(["Erythroxylum coca ",html.Span("var. ",className="var")," ipadu"],href=f"#all_compounds_treemap",
+                        className="var_ipadu_text", id="ipadu", n_clicks=0)],id="ipadu_box",className="var_ipadu_box"),
+               
+                    dbc.Col([ 
+                        html.A(["Erythroxylum coca ",html.Span("var. ",className="var")," coca"],href=f"#all_compounds_treemap",
+                        className="var_coca_text", id="coca")],id="coca_box",className="var_coca_box"),
+                    dbc.Col([ 
+                        html.A(["Erythroxylum novogranatense ",html.Span("var. ",className="var")," novogranatense"],href=f"#all_compounds_treemap",
+                        className="var_novo_text", id="novo")],id="novo_box",className="var_novo_box"),
+                    dcc.Store(id='clicked-button', data=None)
+                    ],className="gap-1",justify="between"), 
+    dbc.Container([
+            dbc.Row(style={'height':'2.4rem'}),
+            dbc.Row("Este gráfico muestra todos los metabolitos encontrados en esta variedad de coca. \
+                    Puedes seleccionar entre metabolitos primarios y secundarios, conocer su estructura molecular \
+                    y aprender sobre ellos.",style={'textAlign':'center'}),
+            dbc.Row(style={'height':'2.4rem'}),
+            ],className="subcontainer-results"),
+    dbc.Row(html.Div(html.Div(id='all_compounds_treemap',className="treemap"))),
+    dbc.Row(style={'height':'2.4rem'}),
+    dbc.Row(dbc.Col(html.Div(id='compound_description',className="compound_description"))),
+    dbc.Row(style={'height':'9rem'}),        
+    dbc.Container([    
             # COMPUESTOS BIOACTIVOS
-            dbc.AccordionItem([html.Div("Conoce los compuestos de esta variedad de coca que tienen actividad biológica, es decir, que pueden presentar efectos fisiológicos en el ser humano."),
-            dbc.Row(html.Div(id='classification')),
-            ], 
-                title="COMPUESTOS BIOACTIVOS"
-            ),
-
+            dbc.Row(html.Div("COMPUESTOS BIOACTIVOS", id="compuestos_bioactivos", className="results_title")),
+            dbc.Row(style={'height':'2.4rem'}),
+            html.Div("Conoce los compuestos de esta variedad de coca que tienen actividad biológica, es decir, que pueden presentar efectos fisiológicos en el ser humano."),
+            ],className="subcontainer-results"),
+    dbc.Row(style={'height':'4rem'}),
+    dbc.Row(html.Div(id='classification')),
+    dbc.Row(style={'height':'9rem'}),
+    dbc.Container([ 
             # CROMATOGRAMA
-            dbc.AccordionItem([html.Div("Este gráfico muestra los resultados de las lecturas cromatográficas de cada extracto analizado. Te permite visualizar por variedad de coca y tipo de extracto. El tiempo de retención indica la naturaleza química de la sustancia: un tiempo de retención corto sugiere compuestos de naturaleza grasa, mientras que un tiempo largo indica compuestos que se disuelven en agua, como azúcares o aminoácidos."),
-            dbc.Row([dbc.Col(html.Div(id='area_compounds'),width={"size":12,"order":1})]),
-            ],
-                title="CROMATOGRAMAS"
-            )          
+            dbc.Row(html.Div("CROMATOGRAMAS", id="cromatogramas", className="results_title")),
+            dbc.Row(style={'height':'4rem'}),
+            html.Div("Este gráfico muestra los resultados de las lecturas cromatográficas de cada extracto \
+                     analizado. Te permite visualizar por variedad de coca y tipo de extracto. El tiempo de \
+                     retención indica la naturaleza química de la sustancia: un tiempo de retención corto \
+                     sugiere compuestos de naturaleza grasa, mientras que un tiempo largo indica compuestos \
+                     que se disuelven en agua, como azúcares o aminoácidos."),       
             
-            ],
-        flush=True,always_open=True
-            ),
-], className="container-text")
+            ],className="subcontainer-results"),
+    dbc.Row(style={'height':'2rem'}),
+    dbc.Row([dbc.Col(html.Div(id='area_compounds'),width={"size":12,"order":1})]),
+    ], className="container-results")]
     
 # Define the layout
 layout= [
@@ -145,8 +164,6 @@ layout= [
             )
    ]
 
-
-
 @callback(
     Output('all_compounds_treemap', 'children'),
     Output('area_compounds','children'),
@@ -160,11 +177,11 @@ layout= [
 def display_click_data(n_clicks1,n_clicks2,n_clicks3,n_clicks4):
     global pagina_trux,pagina_coca,pagina_ipadu,pagina_novo,pagina_khoka
     fig_1 = treemap_layout()
-    fig_2 = area('khoka','_2')
+    fig_2 = area('Truxillense','_2') # default area
     fig_3 = classification()
     fig_5 = description()
 
-    pagina_khoka = True
+    pagina_trux = True
 
     if ctx.triggered_id == 'trux' :
         fig_1 = treemap_layout()
@@ -699,6 +716,7 @@ def classification_(n_clicks):
 
 def area_(value,n_clicks1,n_clicks2,n_clicks3,n_clicks4):
     global pagina_ipadu,pagina_novo,pagina_trux,pagina_coca
+
     if pagina_trux == True :
         ruta = os.path.join(os.getcwd(),'Varieties','Truxillense')
         pagina_coca,pagina_ipadu,pagina_novo = False, False, False
@@ -844,5 +862,54 @@ def texto_descriptivo(children):
 
     return texto_metabolito
 
+@callback(
+    [Output('trux_box', 'style'),
+     Output('ipadu_box', 'style'),
+     Output('coca_box', 'style'),
+     Output('novo_box', 'style')],
+    [Input('trux', 'n_clicks'),
+     Input('ipadu', 'n_clicks'),
+     Input('coca', 'n_clicks'),
+     Input('novo', 'n_clicks')]
+)
+
+def update_button_styles(n_clicks1,n_clicks2,n_clicks3,n_clicks4):
+
+    # Default styles for all buttons (gray background)
+    style_inactive = {"background-color": "gray", "height": "3rem",
+                         "display": "flex", "alignItems": "center", "justifyContent": "center"}
+    style_active = {"background-color": "#455e3c", "height": "3rem",
+                         "display": "flex", "alignItems": "center", "justifyContent": "center"}
+    # Determine which button was clicked most recently
+    ctx = dash.callback_context
+
+    if not ctx.triggered:
+        return style_active, style_inactive, style_inactive, style_inactive
+    else:
+        clicked_button = ctx.triggered[0]['prop_id'].split('.')[0]
+        
+    # Update styles based on which button was clicked
+    if clicked_button == 'trux':
+
+        style_active = {"background-color": "#455e3c", "height": "3rem",
+                         "display": "flex", "alignItems": "center", "justifyContent": "center"}
+        return style_active, style_inactive, style_inactive, style_inactive
+    
+    elif clicked_button == 'ipadu':
+        style_active = {"background-color": "#737634", "height": "3rem",
+                         "display": "flex", "alignItems": "center", "justifyContent": "center"}
+
+        return style_inactive, style_active, style_inactive, style_inactive
+    
+    elif clicked_button == 'coca':
+        style_active = {"background-color": "#678849", "height": "3rem",
+                    "display": "flex", "alignItems": "center", "justifyContent": "center"}
+        return style_inactive, style_inactive, style_active, style_inactive
+    
+    elif clicked_button == 'novo':
+        style_active = {"background-color": "#95a823", "height": "3rem",
+                    "display": "flex", "alignItems": "center", "justifyContent": "center"}
+
+        return style_inactive, style_inactive, style_inactive, style_active
 
 

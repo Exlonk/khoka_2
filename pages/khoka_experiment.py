@@ -3,7 +3,7 @@ from dash import dcc, html
 import dash_bootstrap_components as dbc
 import os
 
-dash.register_page(__name__,path='/')
+dash.register_page(__name__)
 
 # Define the navigation bar with the dropdown menu
 
@@ -20,16 +20,19 @@ portada =  dbc.Row(
 
 experimento = dbc.Container(
     dbc.Row([
+                dbc.Row(style={'height':'4rem'}), # 96px
                 html.Div("EXPERIMENTO", className="body-title-green"), 
-                html.Div(["Este estudio busca identificar los ", html.Span("compuestos químicos", id="compuestos_quimicos",className="underlined-text"),  " presentes en las cuatro variedades de coca cultivadas en el jardín del Proyecto Khoka. Para ello, se prepararon extractos con las hojas de cada variedad en diferentes ", html.Span("solventes", id="solvente_1",className="underlined-text") ," y se caracterizaron los metabolitos presentes en sus hojas mediante técnicas cromatográficas. Esto nos permitió realizar un análisis comparativo e identificar las similitudes y diferencias en la producción de estos compuestos entre las distintas variedades."],
-                       style={'marginTop':'3rem','marginBottom':'4rem','paddingRight':'0rem','paddingLeft':'0rem'}),
+                dbc.Row(style={'height':'2.8rem'}), # 48px
+                html.Div(["Este estudio busca identificar los ", html.Span("compuestos químicos", id="compuestos_quimicos",className="underlined-text"),  " presentes en las cuatro variedades de coca cultivadas en el jardín del Proyecto Khoka. Para ello, se prepararon extractos con las hojas de cada variedad en diferentes ", html.Span("solventes", id="solvente_1",className="underlined-text") ," y se caracterizaron los metabolitos presentes en sus hojas mediante técnicas cromatográficas. Esto nos permitió realizar un análisis comparativo e identificar las similitudes y diferencias en la producción de estos compuestos entre las distintas variedades."]),
+                dbc.Row(style={'height':'4rem'}),
                 html.Div("PASO 1: ",className="body-title-1",id="experimento_paso_1"),
                 html.Div("Extracción de los compuestos presentes en las hojas",className="body-title-2"),
-                html.Div(["El proceso de extracción consiste en mezclar hojas secas de cada variedad de coca con diversos ", html.Span("solventes", id="solvente_2", className="underlined-text"),", utilizando calor, para extraer y concentrar los componentes presentes en las hojas y así poder analizar una muestra mediante cromatografía de gases."],
-                       style={'marginTop':'1rem','marginBottom':'0rem','paddingRight':'0rem','paddingLeft':'0rem'}),
+                dbc.Row(style={'height':'2.8rem'}), 
+                html.Div(["El proceso de extracción consiste en mezclar hojas secas de cada variedad de coca con diversos ", html.Span("solventes", id="solvente_2", className="underlined-text"),", utilizando calor, para extraer y concentrar los componentes presentes en las hojas y así poder analizar una muestra mediante cromatografía de gases."]),
+                dbc.Row(style={'height':'4rem'}), 
                 html.Img(src="/assets/h_exp_2_esc.webp",style={"width": "100%",'marginTop':'4rem','marginBottom':'1rem'},className="center-image large-image"),
                 html.Img(src="/assets/exp_2_m.webp",style={"width": "100%",'marginTop':'4rem','marginBottom':'1rem'},className="center-image small-image"),
-
+                dbc.Row(style={'height':'4rem'}), 
                 html.Div("Principios básicos de extracción química",className="body-title-3", id = "pbe",
                          style={'marginTop':'2rem','marginBottom':'3rem','paddingRight':'0rem','paddingLeft':'0rem'}),
                 html.Div(["La extracción con solventes es una técnica de separación que aprovecha las diferencias de solubilidad de los componentes de una ", html.Span("mezcla", id="mezcla_1", className="underlined-text"), ", ya sea sólida o líquida, para aislar un compuesto específico mediante la transferencia selectiva de este desde la ", html.Span("mezcla", id="mezcla_2", className="underlined-text")," original hacia una fase líquida, a través de un ", html.Span("solvente", id="solvente_3", className="underlined-text"), " orgánico como el etanol o la acetona."],
@@ -98,7 +101,7 @@ experimento = dbc.Container(
                 " orgánicos son seleccionados específicamente por su capacidad de separar eficientemente los componentes en técnicas de extracción líquido-líquido."
                 ],style={'paddingRight':'0rem','paddingLeft':'0rem','marginBottom':'3rem'}), 
                 
-                html.Div(["PASO 2: "],className="body-title-1",id="experimento_paso_2"),
+                html.Div("PASO 2: ",className="body-title-1",id="experimento_paso_2"),
                 html.Div("Análisis de compuestos: Cromatografía de Gases",className="body-title-2"),
                 html.Div(["En esta etapa realizamos análisis cromatográficos de los extractos de las hojas de cada variedad de coca preparados en distintos ", 
                          html.Span("solventes", id="solvente_12", className="underlined-text")," como etanol, diclorometano y hexano."],
