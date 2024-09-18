@@ -27,38 +27,38 @@ experimento = dbc.Container(
                 dbc.Row(style={'height':'4rem'}),
                 html.Div("PASO 1: ",className="body-title-1",id="experimento_paso_1"),
                 html.Div("Extracción de los compuestos presentes en las hojas",className="body-title-2"),
-                dbc.Row(style={'height':'2.8rem'}), 
+                dbc.Row(style={'height':'2rem'}), 
                 html.Div(["El proceso de extracción consiste en mezclar hojas secas de cada variedad de coca con diversos ", html.Span("solventes", id="solvente_2", className="underlined-text"),", utilizando calor, para extraer y concentrar los componentes presentes en las hojas y así poder analizar una muestra mediante cromatografía de gases."]),
                 dbc.Row(style={'height':'4rem'}), 
                 html.Img(src="/assets/h_exp_2_esc.webp",style={"width": "100%",'marginTop':'4rem','marginBottom':'1rem'},className="center-image large-image"),
                 html.Img(src="/assets/exp_2_m.webp",style={"width": "100%",'marginTop':'4rem','marginBottom':'1rem'},className="center-image small-image"),
                 dbc.Row(style={'height':'4rem'}), 
                 html.Div("Principios básicos de extracción química",className="body-title-3", id = "pbe",
-                         style={'marginTop':'2rem','marginBottom':'3rem','paddingRight':'0rem','paddingLeft':'0rem'}),
+                         style={'marginTop':'0rem','marginBottom':'2rem','paddingRight':'0rem','paddingLeft':'0rem'}),
                 html.Div(["La extracción con solventes es una técnica de separación que aprovecha las diferencias de solubilidad de los componentes de una ", html.Span("mezcla", id="mezcla_1", className="underlined-text"), ", ya sea sólida o líquida, para aislar un compuesto específico mediante la transferencia selectiva de este desde la ", html.Span("mezcla", id="mezcla_2", className="underlined-text")," original hacia una fase líquida, a través de un ", html.Span("solvente", id="solvente_3", className="underlined-text"), " orgánico como el etanol o la acetona."],
                        style={'paddingRight':'0rem','paddingLeft':'0rem'}),
 
 
                 html.Div("Extracción líquido-líquido simple",className="body-title-3", id = "extraccion_liquido",
-                         style={'marginTop':'2rem','marginBottom':'3rem','paddingRight':'0rem','paddingLeft':'0rem'}),
+                         style={'marginTop':'3rem','marginBottom':'2rem','paddingRight':'0rem','paddingLeft':'0rem'}),
                 html.Div(["La extracción líquido-líquido es un método eficaz para separar los componentes de una ", html.Span("mezcla",id="mezcla_3", className="underlined-text")," líquida. La efectividad de esta técnica se basa en la diferencia de ",html.Span("solubilidad", id="solubilidad_1",className="underlined-text")," del compuesto que se quiere extraer en dos ",html.Span("solventes", id="solvente_4", className="underlined-text")," distintos ",html.Span("inmiscibles", id="inmiscible_1",className="underlined-text"),", es decir, que al agitar la ", html.Span("mezcla", id="mezcla_4", className="underlined-text")," el compuesto se distribuye selectivamente entre ambos solventes generando dos ",html.Span("fases",id="fases", className="underlined-text"),". Ejemplo: agua y éter de petróleo."],
                        style={'paddingRight':'0rem','paddingLeft':'0rem'}),
                 html.Img(src="/assets/h_exp_3_esc.webp",style={"width": "100%",'marginTop':'4rem','marginBottom':'1rem'},className="center-image large-image"),
                 html.Img(src="/assets/exp_3_m.webp",style={"width": "100%",'marginTop':'4rem','marginBottom':'1rem'},className="center-image small-image"),
 
                 html.Div("Características del solvente de extracción",className="body-title-3", id = "car_sol",
-                         style={'marginTop':'2rem','marginBottom':'3rem','paddingRight':'0rem','paddingLeft':'0rem'}),
+                         style={'marginTop':'3rem','marginBottom':'2rem','paddingRight':'0rem','paddingLeft':'0rem'}),
                 html.Div(["La extracción selectiva de un componente de una ",html.Span("mezcla", id="mezcla_5", className="underlined-text")," se logra añadiendo otro solvente que cumpla con las siguientes condiciones:"],
-                       style={'paddingRight':'0rem','paddingLeft':'0rem','marginBottom':'3rem'}),
+                       style={'paddingRight':'0rem','paddingLeft':'0rem','marginBottom':'2rem'}),
 
                 html.Div([html.Span("Inmiscibilidad: ", className="italic-text"), "al añadir el solvente no se puede formar una ", html.Span("mezcla", id="mezcla_6", className="underlined-text")," homogénea, como al mezclar agua y aceite; aclarando que el aceite no es un buen medio de extracción."],
-                       style={'paddingRight':'0rem','paddingLeft':'0rem','marginBottom':'3rem'}),      
+                       style={'paddingRight':'0rem','paddingLeft':'0rem','marginBottom':'2rem'}),      
 
                 html.Div([html.Span("Mayor ", className="italic-text"), html.Span("solubilidad", id="solubilidad_2",className="underlined-text italic-text"),
                           html.Span(":", className="italic-text"), " el componente que se \
                           desea aislar debe ser mucho más ", html.Span("soluble", id="solubilidad_4", className="underlined-text"), 
                           " en el solvente de extracción que en el ", html.Span("solvente", id="solvente_5", className="underlined-text"), " original."],
-                       style={'paddingRight':'0rem','paddingLeft':'0rem','marginBottom':'3rem'}),  
+                       style={'paddingRight':'0rem','paddingLeft':'0rem','marginBottom':'2rem'}),  
 
                 html.Div([
                     html.Span(["Menor ", html.Span("solubilidad", id="solubilidad_3", className="underlined-text"), " de otros componentes: "], 
@@ -68,24 +68,24 @@ experimento = dbc.Container(
                     " en el ",
                     html.Span("solvente", id="solvente_13", className="underlined-text"),
                     " de extracción."
-                ],style={'paddingRight':'0rem','paddingLeft':'0rem','marginBottom':'3rem'}),  
+                ],style={'paddingRight':'0rem','paddingLeft':'0rem','marginBottom':'2rem'}),  
 
                 html.Div([
                     html.Span("Volatilidad", className="italic-text")," el ", html.Span("solvente", id="solvente_7", className="underlined-text"),
                     " debe ser muy volátil para que se pueda eliminar fácilmente mediante destilación o evaporación."
-                ],style={'paddingRight':'0rem','paddingLeft':'0rem','marginBottom':'3rem'}), 
+                ],style={'paddingRight':'0rem','paddingLeft':'0rem','marginBottom':'2rem'}), 
 
                 html.Div([
                 html.Span("Seguridad", className="italic-text")," el ",html.Span("solvente", id="solvente_8", className="underlined-text"), 
                 " no debe ser tóxico ni inflamable, aunque es difícil encontrar solventes que cumplan ambos criterios. Existen solventes relativamente no tóxicos pero inflamables, como el hexano; otros no son inflamables, pero sí tóxicos, como el diclorometano o el cloroformo; y algunos son tanto tóxicos como inflamables, como el benceno."
-                ],style={'paddingRight':'0rem','paddingLeft':'0rem','marginBottom':'3rem'}), 
+                ],style={'paddingRight':'0rem','paddingLeft':'0rem','marginBottom':'2rem'}), 
 
                 html.Div([
                 html.Span("Solventes", className="italic-text"), html.Span(" inmiscibles con el agua:", className="italic-text"), 
                 html.Span(" solventes utilizados con mayor frecuencia", className="italic-text"), html.Br(),
                 "La ", html.Span("miscibilidad",id="miscible", className="underlined-text")," de un ",html.Span("solvente", id="solvente_9", className="underlined-text"),
                 " orgánico con el agua depende de su polaridad:"
-                ],style={'paddingRight':'0rem','paddingLeft':'0rem','marginBottom':'3rem'}), 
+                ],style={'paddingRight':'0rem','paddingLeft':'0rem','marginBottom':'2rem'}), 
 
                 html.Div([
                 html.Span("Alta polaridad:", className="italic-text"),
