@@ -50,6 +50,16 @@ html {
 }
 /* General tools */
 
+.espaciado_96_esc {
+    height: 4rem;
+}
+.espaciado_48_esc {
+    height: 2.8rem;
+}
+.espaciado_24_esc {
+    height: 2rem;
+}
+
 .italic-text {
     font-family: 'basker_120_italic';
     color: var(--verde_claro); /* Change the color as needed */
@@ -83,12 +93,10 @@ html {
 }
 
 .body-title-1L {
-    font-size: 3rem;
+    font-size: 2.8rem;
     text-align: left;
     color: var(--verde_claro);
     font-family: 'basker_120'; 
-    padding-right: 0; 
-    padding-left: 0;
 }
 
 .body-title-2 {
@@ -96,8 +104,6 @@ html {
     color: var(--verde_claro);
     font-family: 'basker_120'; 
     margin-bottom: 1rem;
-    padding-right: 0; 
-    padding-left: 0;
 }
 
 .body-title-2L {
@@ -106,8 +112,6 @@ html {
     color: var(--verde_claro);
     font-family: 'basker_120'; 
     margin-bottom: 1rem;
-    padding-right: 0; 
-    padding-left: 0;
 }
 
 .body-title-3 {
@@ -116,15 +120,11 @@ html {
     font-family: 'basker_120'; 
     line-height: 1;
     margin-bottom: 1rem;
-    padding-right: 0; 
-    padding-left: 0;
 }
 
 .body-footer {
     font-size: 1rem;
     font-family: 'basker_120'; 
-    padding-right: 0; 
-    padding-left: 0;
 }
 
 .body-biblio {
@@ -431,6 +431,17 @@ html {
         margin-bottom: 10px;  /* Ajusta este valor según el espacio deseado */
     }
 
+
+    .espaciado_96_mov {
+        height: 3.5rem;
+    }
+    .espaciado_48_mov {
+        height: 2rem;
+    }
+    .espaciado_24_mov {
+        height: 1rem;
+    }
+    
     .header-image {
         margin: 0;
         width: 100%;
