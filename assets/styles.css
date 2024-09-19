@@ -50,12 +50,8 @@ html {
 }
 /* General tools */
 
-.espaciado_144_esc {
-    height: 9rem;
-}
-
 .espaciado_96_esc {
-    height: 6rem;
+    height: 4.3rem;
 }
 .espaciado_48_esc {
     height: 2.8rem;
@@ -93,7 +89,6 @@ html {
     font-size: 2.8rem;
     color: var(--verde_claro);
     font-family: 'basker_120'; 
-
 }
 
 .body-title-1L {
@@ -107,13 +102,16 @@ html {
     font-size: 2.6rem;
     color: var(--verde_claro);
     font-family: 'basker_120'; 
+    line-height: 1;
 }
 
 .body-title-2_glosary {
     font-size: 2.6rem;
     color: var(--verde_claro);
     font-family: 'basker_120'; 
-    padding: 0;
+    line-height: 1.3;
+    padding-bottom: 0;
+    
 }
 
 .body-title-2L {
@@ -121,6 +119,7 @@ html {
     text-align: left;
     color: var(--verde_claro);
     font-family: 'basker_120'; 
+    line-height: 1;
 }
 
 .body-title-3 {
@@ -147,9 +146,9 @@ html {
 .container-text {
     margin-right: 17%; /* Ajustar el margen derecho de todo el diseño */
     margin-left: 17%;
-/*    margin-top: 2rem;
+    margin-top: 2rem;
     margin-bottom: 2rem;
-*/    font-family: 'basker_120';
+    font-family: 'basker_120';
     font-size: 1.4rem;
     color: #706f6f;
     text-align: left;
@@ -158,9 +157,9 @@ html {
 .container-results {
     margin-right: 22%; /* Ajustar el margen derecho de todo el diseño */
     margin-left: 22%;
-/*    margin-top: 2rem;
+    margin-top: 2rem;
     margin-bottom: 2rem;
-*/    font-family: 'basker_120';
+    font-family: 'basker_120';
     font-size: 1.4rem;
     color: #706f6f;
     text-align: center;
@@ -180,6 +179,11 @@ html {
 {
     display: none;
 }
+
+.small-image_header {
+    display: none;
+}
+
 .header-image {
     width: 100%;
     height: 100%;
@@ -223,8 +227,8 @@ html {
 .custom-nav .nav-link {
     color: white ;  /* Change text color to black */
     height: 3rem;
-    font-size: 1.3rem; /* Nav text size*/
-    text-align: left;
+    font-size: 1.4rem; /* Nav text size*/
+    text-align: center;
 }
 
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
@@ -411,13 +415,14 @@ html {
 
 .text_description {
     padding-top: 2rem;
-    padding: 0;
+    padding: 1.3rem;
     margin-left: 0rem; 
     margin-right: 0rem; 
     font-size: 1.2rem;
     font-family: "basker_120";  
     text-align: left; /* Justificar texto */
-  
+    line-height: 1.2;
+ 
 }
 
 .titulo_grafica_compound {
@@ -443,14 +448,21 @@ html {
 /* RESPONSIVE 1024 x 600 */
 
 @media (max-width: 600px) {
+
+    .small-image_header {
+            display: none;
+            padding-bottom: 1rem;
+    }
+
     .nav-item {
         margin-bottom: 10px;  /* Ajusta este valor según el espacio deseado */
     }
-    .espaciado_144_mov {
-        height: 6rem;
-    }    
+
+    .espaciado_intr_img {
+        height: 1rem;
+    }
     .espaciado_96_mov {
-        height: 4rem;
+        height: 3rem;
     }
     .espaciado_48_mov {
         height: 2rem;
@@ -460,43 +472,67 @@ html {
     }
     
     .header-image {
-        margin: 0;
         width: 100%;
-        padding: 0;
+        display: block;
     }
+
     .body-title-1 {
         font-size: 2.5rem;
         text-align: left;
         color: var(--verde_claro);
         font-family: 'basker_120'; 
+        line-height: 1;
     }
 
     .body-title-2 {
         font-size: 2.2rem;
         text-align: left;
         font-family: 'basker_120'; 
+        line-height: 1;
     }
 
     .body-title-3 {
         font-size: 1.9rem;
         text-align: left;
         font-family: 'basker_120'; 
+        line-height: 1;
+    }
+
+    .body-title-2L {
+        font-size: 3rem;
+        text-align: left;
+        color: var(--verde_claro);
+        font-family: 'basker_120'; 
+        line-height: 1;
     }
 
     .container-text
     {
-        margin-right: 10%; /* Ajustar el margen derecho de todo el diseño */
-        margin-left: 10%;
+        margin-right: 0%; /* Ajustar el margen derecho de todo el diseño */
+        margin-left: 0%;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
         font-family: 'basker_120';
         font-size: 1.1rem;
         color: #706f6f;
         text-align: left;
     }
 
+    .center-image {
+        display: block;
+        margin: 0;
+    }
+
+    .small-image {
+        padding: 0;
+    }
+
     .container-results 
     {
         margin-right: 10%; /* Ajustar el margen derecho de todo el diseño */
         margin-left: 10%;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
         font-family: 'basker_120';
         font-size: 1.1rem;
         color: #706f6f;
@@ -509,9 +545,6 @@ html {
     .subcontainer-results {
     padding-left: 0;
     padding-right: 0;    
-    }
-    .small-image {
-        display: block;
     }
 
     .large-image
@@ -534,6 +567,7 @@ html {
         display: flex;
         flex-direction: column;
     }
+
     .var_tru_text {
         text-decoration: none;
         color: white;
