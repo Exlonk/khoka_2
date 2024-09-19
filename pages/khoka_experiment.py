@@ -28,7 +28,7 @@ experimento = dbc.Container(
                 html.Div("PASO 1:",className="body-title-1",id="experimento_paso_1"),
                 html.Div("Extracción de los compuestos presentes en las hojas",className="body-title-2"),
                 dbc.Row(className="espaciado_48_esc espaciado_48_mov"),
-                html.Div("El proceso de extracción consiste en mezclar hojas secas de cada variedad de coca con diversos ", html.Span("solventes", id="solvente_2", className="underlined-text"),", utilizando calor, para extraer y concentrar los componentes presentes en las hojas y así poder analizar una muestra mediante cromatografía de gases."),
+                html.Div(["El proceso de extracción consiste en mezclar hojas secas de cada variedad de coca con diversos ", html.Span("solventes", id="solvente_2", className="underlined-text"),", utilizando calor, para extraer y concentrar los componentes presentes en las hojas y así poder analizar una muestra mediante cromatografía de gases."]),
                 dbc.Row(className="espaciado_96_esc espaciado_96_mov"),
                 html.Img(src="/assets/h_exp_2_esc.webp",style={"width": "100%",'marginTop':'4rem','marginBottom':'1rem'},className="center-image large-image"),
                 html.Img(src="/assets/exp_2_m.webp",style={"width": "100%",'marginTop':'4rem','marginBottom':'1rem'},className="center-image small-image"),
