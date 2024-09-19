@@ -7,11 +7,6 @@ dash.register_page(__name__,path='/khoka_conclusions')
 
 # Define the navigation bar with the dropdown menu
 
-header = [
-            html.Img(src=os.path.join(os.getcwd(),"/assets/header.webp"),className="header-image center-image large-image"),
-            html.Img(src=os.path.join(os.getcwd(),"/assets/header_m.webp"),className="header-image center-image small-image"),
-         ]
-
 portada =  dbc.Row(
         [
             html.Img(src="/assets/h_conclu.webp",style={"width": "100%",'marginTop':'3%','marginBottom':'3   %'},className="center-image"),

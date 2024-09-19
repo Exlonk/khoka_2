@@ -7,11 +7,6 @@ dash.register_page(__name__,path='/')
 
 # Define the navigation bar with the dropdown menu
 
-header = [
-            html.Img(src=os.path.join(os.getcwd(),"/assets/header.webp"),className="header-image center-image large-image"),
-            html.Img(src=os.path.join(os.getcwd(),"/assets/header_m.webp"),className="header-image center-image small-image"),
-         ]
-
 portada =  dbc.Row(
         [
             html.Img(src="/assets/h_intro_1.webp",style={"width": "100%",'marginTop':'3%','marginBottom':'3   %'},className="center-image"),
@@ -20,7 +15,7 @@ portada =  dbc.Row(
 
 introduccion = dbc.Container(
     dbc.Row([
-                dbc.Row(className="espaciado_96_esc espaciado_96_mov"),
+                dbc.Row(className="espaciado_96_esc espaciado_intr_img"),
                 html.Div("INTRODUCCION", className="body-title-green"), 
                 dbc.Row(className="espaciado_48_esc espaciado_48_mov"),
                 html.Div(["Desde la antigüedad, los componentes activos de la hoja de coca han despertado un profundo interés en el ser humano. Solo gracias a los avances en la ciencia química fue posible aislar su principal ", html.Span("alcaloide", id="alcaloide",className="underlined-text"), ", la cocaína, convirtiéndose en uno de los logros científicos más relevantes del siglo xix. Desde entonces, numerosos investigadores han buscado identificar los ", html.Span("compuestos químicos", id="compuestos_quimicos",className="underlined-text"), " presentes en sus distintas variedades. Entre ellos, Timothy Plowman, considerado el investigador sobre coca más importante del siglo xx, quien no solo clasificó botánicamente esta familia de plantas, sino que además llevó a cabo diversos estudios comparativos para conocer la composición química de cada variedad."]),
@@ -43,7 +38,7 @@ introduccion = dbc.Container(
                 html.Div("¿Qué es la metabolómica?",className="body-title-2",id="intro_metabol_1"),
                 dbc.Row(className="espaciado_24_esc espaciado_24_mov"),
                 html.Div(["La metabolómica es una rama de las ciencias naturales que se enfoca en el estudio detallado de los procesos metabólicos de los seres vivos, específicamente, a través del análisis de pequeñas ", html.Span("moléculas",id="moleculas_1", className="underlined-text")," conocidas como ",html.Span("metabolitos", className="italic-text"),", que son los compuestos producidos durante el metabolismo."]),
-                dbc.Row(className="espaciado_48_esc espaciado_48_mov"),
+                dbc.Row(className="espaciado_96_esc espaciado_96_mov"),
                 html.Div("Metabolismo en las Plantas",className="body-title-2",id="intro_metabol_2"),
                 dbc.Row(className="espaciado_24_esc espaciado_24_mov"),
                 html.Div(["El metabolismo es el conjunto de procesos químicos y físicos que tienen lugar en las células de los organismos vivos con el fin de transformar el alimento en ", html.Span("energía",id="energia_1",className="underlined-text"), " y poder llevar a cabo las funciones biológicas necesarias para preservar la vida: la respiración, la digestión, la circulación, la regulación de la temperatura corporal, la eliminación de desechos, etc."]),
