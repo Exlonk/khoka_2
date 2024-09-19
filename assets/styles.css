@@ -89,7 +89,6 @@ html {
     font-size: 2.8rem;
     color: var(--verde_claro);
     font-family: 'basker_120'; 
-    padding: 0;
 }
 
 .body-title-1L {
@@ -104,7 +103,6 @@ html {
     color: var(--verde_claro);
     font-family: 'basker_120'; 
     margin-bottom: 1rem;
-    padding: 0;
 }
 
 .body-title-2L {
