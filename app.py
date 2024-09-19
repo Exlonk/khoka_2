@@ -11,8 +11,8 @@ app = dash.Dash(__name__, use_pages=True , external_stylesheets=[dbc.themes.BOOT
 server = app.server
 
 header = [
-            html.Img(src=os.path.join(os.getcwd(),"/assets/header.webp"),className="header-image center-image large-image"),
-            html.Img(src=os.path.join(os.getcwd(),"/assets/header_m.webp"),className="header-image center-image small-image"),
+            html.Img(src=os.path.join(os.getcwd(),"/assets/header.webp"),className="header-image  large-image"),
+            html.Img(src=os.path.join(os.getcwd(),"/assets/header_m.webp"),className="header-image  small-image_header"),
          ]
 
 nav= dbc.Nav(
@@ -23,17 +23,17 @@ nav= dbc.Nav(
                         dbc.DropdownMenu(
                             [
                                 dbc.DropdownMenuItem("¿Qué es la metabolómica?", header=False,
-                                                     href=f"#intro_metabol_1",external_link=True,style={"fontFamily":"basker_120","fontSize":"0.8rem"}),
+                                                     href=f"#intro_metabol_1",external_link=True,style={"fontFamily":"basker_120","fontSize":"1rem","line-height":"1"}),
                                 dbc.DropdownMenuItem("Metabolismo y Metabolitos en Plantas", 
-                                                     href=f"#intro_metabol_2",external_link=True,style={"fontFamily":"basker_120","fontSize":"0.8rem"}),
+                                                     href=f"#intro_metabol_2",external_link=True,style={"fontFamily":"basker_120","fontSize":"1rem","line-height":"1"}),
                                 dbc.DropdownMenuItem("Metabolitos", 
                                                      href=f"#intro_metabol_3",external_link=True,style={"fontFamily":"basker_120","fontSize":"0.8rem"}),
                                 dbc.DropdownMenuItem("Metabolismo primario", 
                                                      href=f"#intro_metabol_p",external_link=True,style={"fontFamily":"basker_120","fontSize":"0.8rem"}),
                                 dbc.DropdownMenuItem("Metabolismo secundario",
-                                                     href=f"#intro_metabol_s",external_link=True,style={"fontFamily":"basker_120","fontSize":"0.8rem"}),
+                                                     href=f"#intro_metabol_s",external_link=True,style={"fontFamily":"basker_120","fontSize":"0.8rem","line-height":"1"}),
                                 dbc.DropdownMenuItem("Metabolómica en la investigación de la coca", 
-                                                     href=f"#intro_metabol_4",external_link=True,style={"fontFamily":"basker_120","fontSize":"0.8rem"}),
+                                                     href=f"#intro_metabol_4",external_link=True,style={"fontFamily":"basker_120","fontSize":"1rem","line-height":"1"}),
                             ],
                             nav=True,
                             in_navbar=True,
@@ -42,12 +42,12 @@ nav= dbc.Nav(
                         dbc.DropdownMenu(
                             [
                                 dbc.DropdownMenuItem("PASO 1: Extracción de los compuestos presentes en las hojas", header=False,
-                                                     style={"fontFamily":"basker_120","fontSize":"1rem"}, href=f"#experimento_paso_1",external_link=True),
-                                dbc.DropdownMenuItem("Principios básicos de extracción química", href=f"#pbe",external_link=True,style={"fontFamily":"basker_120","fontSize":"0.8rem"}),
-                                dbc.DropdownMenuItem("Extracción líquido-líquido simple", href=f"#extraccion_liquido",external_link=True,style={"fontFamily":"basker_120","fontSize":"0.8rem"}),
-                                dbc.DropdownMenuItem("Características del disolvente de extracción", href=f"#car_sol",external_link=True,style={"fontFamily":"basker_120","fontSize":"0.8rem"}),
-                                dbc.DropdownMenuItem("PASO 2: Análisis de compuestos: Cromatografía de Gases", href=f"#experimento_paso_2",external_link=True,style={"fontFamily":"basker_120","fontSize":"1rem"}),
-                                dbc.DropdownMenuItem("¿Qué es una cromatografía?", href="#que_es_cro",external_link=True,style={"fontFamily":"basker_120","fontSize":"0.8rem"}),
+                                                     style={"fontFamily":"basker_120","fontSize":"1rem","line-height":"1"}, href=f"#experimento_paso_1",external_link=True),
+                                dbc.DropdownMenuItem("Principios básicos de extracción química", href=f"#pbe",external_link=True,style={"fontFamily":"basker_120","fontSize":"0.8rem","line-height":"1"}),
+                                dbc.DropdownMenuItem("Extracción líquido-líquido simple", href=f"#extraccion_liquido",external_link=True,style={"fontFamily":"basker_120","fontSize":"0.8rem","line-height":"1"}),
+                                dbc.DropdownMenuItem("Características del disolvente de extracción", href=f"#car_sol",external_link=True,style={"fontFamily":"basker_120","fontSize":"0.8rem","line-height":"1"}),
+                                dbc.DropdownMenuItem("PASO 2: Análisis de compuestos: Cromatografía de Gases", href=f"#experimento_paso_2",external_link=True,style={"fontFamily":"basker_120","fontSize":"1rem","line-height":"1"}),
+                                dbc.DropdownMenuItem("¿Qué es una cromatografía?", href="#que_es_cro",external_link=True,style={"fontFamily":"basker_120","fontSize":"0.8rem","line-height":"1"}),
                             ],
                             nav=True,
                             in_navbar=True,
@@ -58,9 +58,9 @@ nav= dbc.Nav(
                         dbc.DropdownMenu(
                             [
 
-                                dbc.DropdownMenuItem("CARACTERIZACIÓN QUÍMICA POR VARIEDADES",style={"fontFamily":"basker_120","fontSize":"0.8rem"}, href=f"#caracterizacion",external_link=True),
-                                dbc.DropdownMenuItem("CARACTERIZACIÓN QUÍMICA POR VARIEDADES",style={"fontFamily":"basker_120","fontSize":"0.8rem"}, href=f"#compuestos_bioactivos",external_link=True),
-                                dbc.DropdownMenuItem("CROMATOGRAMAS",style={"fontFamily":"basker_120","fontSize":"0.8rem"}, href=f"#cromatogramas",external_link=True)
+                                dbc.DropdownMenuItem("CARACTERIZACIÓN QUÍMICA POR VARIEDADES",style={"fontFamily":"basker_120","fontSize":"0.8rem","line-height":"1"}, href=f"#caracterizacion",external_link=True),
+                                dbc.DropdownMenuItem("CARACTERIZACIÓN QUÍMICA POR VARIEDADES",style={"fontFamily":"basker_120","fontSize":"0.8rem","line-height":"1"}, href=f"#compuestos_bioactivos",external_link=True),
+                                dbc.DropdownMenuItem("CROMATOGRAMAS",style={"fontFamily":"basker_120","fontSize":"0.8rem","line-height":"1"}, href=f"#cromatogramas",external_link=True)
 
                             ],
                             nav=True,
