@@ -80,7 +80,7 @@ resultado = [dbc.Row([
             # CARACTERIZACION QUIMICA POR VARIEDADES
             dbc.Row(className="espaciado_96_esc espaciado_96_mov"),
             dbc.Row("CARACTERIZACIÓN QUÍMICA DE LAS VARIEDADES DE LA COCA",className="results_title",id="caracterizacion"),
-            dbc.Row(className="espaciado_48_esc espaciado_48_mov"),
+            dbc.Row(className="espaciado_24_esc espaciado_24_mov"),
             dbc.Row("Explora el perfil químico de cada variedad de coca para conocer los metabolitos que contiene,\
                      cuáles tienen  actividad biológica y visualizar los cromatogramas de cada muestra estudiada.",style={'textAlign':'center'}),
             dbc.Row(className="espaciado_48_esc espaciado_48_mov")],className="subcontainer-results"),
@@ -90,7 +90,7 @@ resultado = [dbc.Row([
         dbc.Col(html.Img(src="/assets/coca.png", id="h-coca", height="150px"), width=3,style={"padding":0}),
         dbc.Col(html.Img(src="/assets/novo.png", height="150px"), width=3,style={"padding":0})
     ], justify="around"),
-    dbc.Row(style={'height':'1rem'}),
+    dbc.Row(className="espaciado_24_esc espaciado_24_mov"),
     dbc.Row([dbc.Col([
                         html.A(["Erythroxylum novogranatense ",html.Span(" var. ",className="var")," truxillense"],href=f"#all_compounds_treemap",
                         className="var_tru_text",id="trux", n_clicks=0)],id="trux_box",className="var_tru_box"),
@@ -117,7 +117,7 @@ resultado = [dbc.Row([
     dbc.Row(html.Div(html.Div(id='all_compounds_treemap',className="treemap"))),
     dbc.Row(className="espaciado_48_esc espaciado_48_mov"),
     dbc.Row(dbc.Col(html.Div(id='compound_description',className="compound_description"))),
-    dbc.Row(className="espaciado_96_esc espaciado_96_mov"),        
+    dbc.Row(className="espaciado_144_esc espaciado_144_mov"),        
     dbc.Container([    
             # COMPUESTOS BIOACTIVOS
             dbc.Row(html.Div("COMPUESTOS BIOACTIVOS", id="compuestos_bioactivos", className="results_title")),
@@ -126,7 +126,7 @@ resultado = [dbc.Row([
             ],className="subcontainer-results"),
     dbc.Row(className="espaciado_96_esc espaciado_96_mov"),
     dbc.Row(html.Div(id='classification')),
-    dbc.Row(className="espaciado_96_esc espaciado_96_mov"),
+    dbc.Row(className="espaciado_144_esc espaciado_144_mov"),
     dbc.Container([ 
             # CROMATOGRAMA
             dbc.Row(html.Div("CROMATOGRAMAS", id="cromatogramas", className="results_title")),
