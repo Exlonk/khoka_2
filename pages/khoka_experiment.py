@@ -20,46 +20,41 @@ portada =  dbc.Row(
 
 experimento = dbc.Container(
     dbc.Row([
-                dbc.Row(style={'height':'4rem'}), # 96px
+                dbc.Row(className="espaciado_96_esc espaciado_96_mov"),
                 html.Div("EXPERIMENTO", className="body-title-green"), 
-                dbc.Row(style={'height':'2.8rem'}), # 48px
+                dbc.Row(className="espaciado_48_esc espaciado_48_mov"),
                 html.Div(["Este estudio busca identificar los ", html.Span("compuestos químicos", id="compuestos_quimicos",className="underlined-text"),  " presentes en las cuatro variedades de coca cultivadas en el jardín del Proyecto Khoka. Para ello, se prepararon extractos con las hojas de cada variedad en diferentes ", html.Span("solventes", id="solvente_1",className="underlined-text") ," y se caracterizaron los metabolitos presentes en sus hojas mediante técnicas cromatográficas. Esto nos permitió realizar un análisis comparativo e identificar las similitudes y diferencias en la producción de estos compuestos entre las distintas variedades."]),
-                dbc.Row(style={'height':'4rem'}),
-                html.Div("PASO 1: ",className="body-title-1",id="experimento_paso_1"),
+                dbc.Row(className="espaciado_96_esc espaciado_96_mov"),
+                html.Div("PASO 1:",className="body-title-1",id="experimento_paso_1"),
                 html.Div("Extracción de los compuestos presentes en las hojas",className="body-title-2"),
-                dbc.Row(style={'height':'2rem'}), 
+                dbc.Row(className="espaciado_48_esc espaciado_48_mov"),
                 html.Div(["El proceso de extracción consiste en mezclar hojas secas de cada variedad de coca con diversos ", html.Span("solventes", id="solvente_2", className="underlined-text"),", utilizando calor, para extraer y concentrar los componentes presentes en las hojas y así poder analizar una muestra mediante cromatografía de gases."]),
-                dbc.Row(style={'height':'4rem'}), 
+                dbc.Row(className="espaciado_96_esc espaciado_96_mov"),
                 html.Img(src="/assets/h_exp_2_esc.webp",style={"width": "100%",'marginTop':'4rem','marginBottom':'1rem'},className="center-image large-image"),
                 html.Img(src="/assets/exp_2_m.webp",style={"width": "100%",'marginTop':'4rem','marginBottom':'1rem'},className="center-image small-image"),
-                dbc.Row(style={'height':'4rem'}), 
-                html.Div("Principios básicos de extracción química",className="body-title-3", id = "pbe",
-                         style={'marginTop':'0rem','marginBottom':'2rem','paddingRight':'0rem','paddingLeft':'0rem'}),
-                html.Div(["La extracción con solventes es una técnica de separación que aprovecha las diferencias de solubilidad de los componentes de una ", html.Span("mezcla", id="mezcla_1", className="underlined-text"), ", ya sea sólida o líquida, para aislar un compuesto específico mediante la transferencia selectiva de este desde la ", html.Span("mezcla", id="mezcla_2", className="underlined-text")," original hacia una fase líquida, a través de un ", html.Span("solvente", id="solvente_3", className="underlined-text"), " orgánico como el etanol o la acetona."],
-                       style={'paddingRight':'0rem','paddingLeft':'0rem'}),
-
-
-                html.Div("Extracción líquido-líquido simple",className="body-title-3", id = "extraccion_liquido",
-                         style={'marginTop':'3rem','marginBottom':'2rem','paddingRight':'0rem','paddingLeft':'0rem'}),
-                html.Div(["La extracción líquido-líquido es un método eficaz para separar los componentes de una ", html.Span("mezcla",id="mezcla_3", className="underlined-text")," líquida. La efectividad de esta técnica se basa en la diferencia de ",html.Span("solubilidad", id="solubilidad_1",className="underlined-text")," del compuesto que se quiere extraer en dos ",html.Span("solventes", id="solvente_4", className="underlined-text")," distintos ",html.Span("inmiscibles", id="inmiscible_1",className="underlined-text"),", es decir, que al agitar la ", html.Span("mezcla", id="mezcla_4", className="underlined-text")," el compuesto se distribuye selectivamente entre ambos solventes generando dos ",html.Span("fases",id="fases", className="underlined-text"),". Ejemplo: agua y éter de petróleo."],
-                       style={'paddingRight':'0rem','paddingLeft':'0rem'}),
-                html.Img(src="/assets/h_exp_3_esc.webp",style={"width": "100%",'marginTop':'4rem','marginBottom':'1rem'},className="center-image large-image"),
-                html.Img(src="/assets/exp_3_m.webp",style={"width": "100%",'marginTop':'4rem','marginBottom':'1rem'},className="center-image small-image"),
-
-                html.Div("Características del solvente de extracción",className="body-title-3", id = "car_sol",
-                         style={'marginTop':'3rem','marginBottom':'2rem','paddingRight':'0rem','paddingLeft':'0rem'}),
-                html.Div(["La extracción selectiva de un componente de una ",html.Span("mezcla", id="mezcla_5", className="underlined-text")," se logra añadiendo otro solvente que cumpla con las siguientes condiciones:"],
-                       style={'paddingRight':'0rem','paddingLeft':'0rem','marginBottom':'2rem'}),
-
-                html.Div([html.Span("Inmiscibilidad: ", className="italic-text"), "al añadir el solvente no se puede formar una ", html.Span("mezcla", id="mezcla_6", className="underlined-text")," homogénea, como al mezclar agua y aceite; aclarando que el aceite no es un buen medio de extracción."],
-                       style={'paddingRight':'0rem','paddingLeft':'0rem','marginBottom':'2rem'}),      
-
+                dbc.Row(className="espaciado_96_esc espaciado_96_mov"),
+                html.Div("Principios básicos de extracción química",className="body-title-3", id = "pbe"),
+                dbc.Row(className="espaciado_24_esc espaciado_24_mov"),
+                html.Div(["La extracción con solventes es una técnica de separación que aprovecha las diferencias de solubilidad de los componentes de una ", html.Span("mezcla", id="mezcla_1", className="underlined-text"), ", ya sea sólida o líquida, para aislar un compuesto específico mediante la transferencia selectiva de este desde la ", html.Span("mezcla", id="mezcla_2", className="underlined-text")," original hacia una fase líquida, a través de un ", html.Span("solvente", id="solvente_3", className="underlined-text"), " orgánico como el etanol o la acetona."]),
+                dbc.Row(className="espaciado_96_esc espaciado_96_mov"),
+                html.Div("Extracción líquido-líquido simple",className="body-title-3", id = "extraccion_liquido"),
+                dbc.Row(className="espaciado_24_esc espaciado_24_mov"),
+                html.Div(["La extracción líquido-líquido es un método eficaz para separar los componentes de una ", html.Span("mezcla",id="mezcla_3", className="underlined-text")," líquida. La efectividad de esta técnica se basa en la diferencia de ",html.Span("solubilidad", id="solubilidad_1",className="underlined-text")," del compuesto que se quiere extraer en dos ",html.Span("solventes", id="solvente_4", className="underlined-text")," distintos ",html.Span("inmiscibles", id="inmiscible_1",className="underlined-text"),", es decir, que al agitar la ", html.Span("mezcla", id="mezcla_4", className="underlined-text")," el compuesto se distribuye selectivamente entre ambos solventes generando dos ",html.Span("fases",id="fases", className="underlined-text"),". Ejemplo: agua y éter de petróleo."]),
+                dbc.Row(className="espaciado_96_esc espaciado_96_mov"),
+                html.Img(src="/assets/h_exp_3_esc.webp",style={"width": "100%"},className="center-image large-image"),
+                html.Img(src="/assets/exp_3_m.webp",style={"width": "100%"},className="center-image small-image"),
+                dbc.Row(className="espaciado_96_esc espaciado_96_mov"),
+                html.Div("Características del solvente de extracción",className="body-title-3", id = "car_sol"),
+                dbc.Row(className="espaciado_24_esc espaciado_24_mov"),
+                html.Div(["La extracción selectiva de un componente de una ",html.Span("mezcla", id="mezcla_5", className="underlined-text")," se logra añadiendo otro solvente que cumpla con las siguientes condiciones:"]),
+                dbc.Row(className="espaciado_24_esc espaciado_24_mov"),
+                html.Div([html.Span("Inmiscibilidad: ", className="italic-text"), "al añadir el solvente no se puede formar una ", html.Span("mezcla", id="mezcla_6", className="underlined-text")," homogénea, como al mezclar agua y aceite; aclarando que el aceite no es un buen medio de extracción."]),
+                dbc.Row(className="espaciado_24_esc espaciado_24_mov"),
                 html.Div([html.Span("Mayor ", className="italic-text"), html.Span("solubilidad", id="solubilidad_2",className="underlined-text italic-text"),
                           html.Span(":", className="italic-text"), " el componente que se \
                           desea aislar debe ser mucho más ", html.Span("soluble", id="solubilidad_4", className="underlined-text"), 
-                          " en el solvente de extracción que en el ", html.Span("solvente", id="solvente_5", className="underlined-text"), " original."],
-                       style={'paddingRight':'0rem','paddingLeft':'0rem','marginBottom':'2rem'}),  
-
+                          " en el solvente de extracción que en el ", html.Span("solvente", id="solvente_5", className="underlined-text"), " original."]),
+                dbc.Row(className="espaciado_24_esc espaciado_24_mov"),
                 html.Div([
                     html.Span(["Menor ", html.Span("solubilidad", id="solubilidad_3", className="underlined-text"), " de otros componentes: "], 
                               className="italic-text "),
@@ -67,26 +62,24 @@ experimento = dbc.Container(
                     html.Span("solubles", id="solvente_6", className="underlined-text"),
                     " en el ",
                     html.Span("solvente", id="solvente_13", className="underlined-text"),
-                    " de extracción."
-                ],style={'paddingRight':'0rem','paddingLeft':'0rem','marginBottom':'2rem'}),  
-
+                    " de extracción."]),
+                dbc.Row(className="espaciado_24_esc espaciado_24_mov"),
                 html.Div([
                     html.Span("Volatilidad", className="italic-text")," el ", html.Span("solvente", id="solvente_7", className="underlined-text"),
-                    " debe ser muy volátil para que se pueda eliminar fácilmente mediante destilación o evaporación."
-                ],style={'paddingRight':'0rem','paddingLeft':'0rem','marginBottom':'2rem'}), 
-
+                    " debe ser muy volátil para que se pueda eliminar fácilmente mediante destilación o evaporación."]),
+                dbc.Row(className="espaciado_24_esc espaciado_24_mov"),
                 html.Div([
                 html.Span("Seguridad", className="italic-text")," el ",html.Span("solvente", id="solvente_8", className="underlined-text"), 
                 " no debe ser tóxico ni inflamable, aunque es difícil encontrar solventes que cumplan ambos criterios. Existen solventes relativamente no tóxicos pero inflamables, como el hexano; otros no son inflamables, pero sí tóxicos, como el diclorometano o el cloroformo; y algunos son tanto tóxicos como inflamables, como el benceno."
-                ],style={'paddingRight':'0rem','paddingLeft':'0rem','marginBottom':'2rem'}), 
-
+                ]),
+                dbc.Row(className="espaciado_24_esc espaciado_24_mov"),
                 html.Div([
                 html.Span("Solventes", className="italic-text"), html.Span(" inmiscibles con el agua:", className="italic-text"), 
                 html.Span(" solventes utilizados con mayor frecuencia", className="italic-text"), html.Br(),
                 "La ", html.Span("miscibilidad",id="miscible", className="underlined-text")," de un ",html.Span("solvente", id="solvente_9", className="underlined-text"),
                 " orgánico con el agua depende de su polaridad:"
-                ],style={'paddingRight':'0rem','paddingLeft':'0rem','marginBottom':'2rem'}), 
-
+                ]),
+                dbc.Row(className="espaciado_24_esc espaciado_24_mov"),
                 html.Div([
                 html.Span("Alta polaridad:", className="italic-text"),
                 " los ", html.Span("solventes", id="solvente_10", className="underlined-text"),
@@ -99,14 +92,16 @@ experimento = dbc.Container(
                 ],style={"marginBottom": "1rem","marginTop": "1rem"}),
                 "Estos ",html.Span("solventes", id="solvente_11", className="underlined-text"), 
                 " orgánicos son seleccionados específicamente por su capacidad de separar eficientemente los componentes en técnicas de extracción líquido-líquido."
-                ],style={'paddingRight':'0rem','paddingLeft':'0rem','marginBottom':'3rem'}), 
-                
+                ],style={'paddingRight':'0rem',}),
+                dbc.Row(className="espaciado_96_esc espaciado_96_mov"),
                 html.Div("PASO 2: ",className="body-title-1",id="experimento_paso_2"),
                 html.Div("Análisis de compuestos: Cromatografía de Gases",className="body-title-2"),
+                dbc.Row(className="espaciado_48_esc espaciado_48_mov"),
                 html.Div(["En esta etapa realizamos análisis cromatográficos de los extractos de las hojas de cada variedad de coca preparados en distintos ", 
-                         html.Span("solventes", id="solvente_12", className="underlined-text")," como etanol, diclorometano y hexano."],
-                         style={'marginTop':'1rem','marginBottom':'3rem','paddingRight':'0rem','paddingLeft':'0rem'}),
+                         html.Span("solventes", id="solvente_12", className="underlined-text")," como etanol, diclorometano y hexano."]),
+                dbc.Row(className="espaciado_96_esc espaciado_96_mov"),
                 html.Div("¿Qué es una Cromatografía?",className="body-title-3", id = "que_es_cro"),
+                dbc.Row(className="espaciado_24_esc espaciado_24_mov"),
                 html.Div(["Es un conjunto de técnicas de laboratorio utilizadas para separar los \
                           compuestos de una ",html.Span("mezcla", id="mezcla_7", className="underlined-text"), ". Dado que los extractos de plantas contienen \
                           cientos de metabolitos, la cromatografía de gases se destaca como \
@@ -118,10 +113,10 @@ experimento = dbc.Container(
                           componentes se mueven a través de la columna a diferentes velocidades, \
                           dependiendo de su naturaleza química y empujados por un gas inerte, \
                           como nitrógeno o helio. Al final de la columna, un detector identifica los \
-                          compuestos que emergen. Este resultado se registra en un ",html.Span("cromatograma.",style={'fontStyle':'italic'})],
-                       style={'marginTop':'1rem','marginBottom':'0rem','paddingRight':'0rem','paddingLeft':'0rem'}),
-                html.Img(src="/assets/h_exp_4_esc.webp",style={"width": "100%",'marginTop':'4rem','marginBottom':'1rem'},className="center-image large-image"),
-                html.Img(src="/assets/exp_4_m.webp",style={"width": "100%",'marginTop':'4rem','marginBottom':'1rem'},className="center-image small-image"),
+                          compuestos que emergen. Este resultado se registra en un ",html.Span("cromatograma.",style={'fontStyle':'italic'})]),
+                dbc.Row(className="espaciado_96_esc espaciado_96_mov"),
+                html.Img(src="/assets/h_exp_4_esc.webp",style={"width": "100%"},className="center-image large-image"),
+                html.Img(src="/assets/exp_4_m.webp",style={"width": "100%"},className="center-image small-image"),
             ],
             className="container-text"
         ))
