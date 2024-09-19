@@ -104,6 +104,7 @@ html {
     color: var(--verde_claro);
     font-family: 'basker_120'; 
     margin-bottom: 1rem;
+    padding: 0;
 }
 
 .body-title-2L {
