@@ -51,7 +51,7 @@ html {
 /* General tools */
 
 .espaciado_96_esc {
-    height: 4rem;
+    height: 6rem;
 }
 .espaciado_48_esc {
     height: 2.8rem;
@@ -103,6 +103,14 @@ html {
     color: var(--verde_claro);
     font-family: 'basker_120'; 
     margin-bottom: 1rem;
+}
+
+.body-title-2_glosary {
+    font-size: 2.6rem;
+    color: var(--verde_claro);
+    font-family: 'basker_120'; 
+    margin-bottom: 1rem;
+    padding: 0;
 }
 
 .body-title-2L {
@@ -195,6 +203,14 @@ html {
 
 .custom-nav {
     flex-wrap: wrap; 
+}
+
+.bibliography .dropdown-menu.show {
+    display: none;
+}
+
+.glosary .dropdown-menu.show {
+    display: none;
 }
 
 .custom-nav .dropdown-toggle::after {
@@ -394,13 +410,14 @@ html {
 
 .text_description {
     padding-top: 2rem;
-    padding: 0;
+    padding: 1.3rem;
     margin-left: 0rem; 
     margin-right: 0rem; 
     font-size: 1.2rem;
     font-family: "basker_120";  
     text-align: left; /* Justificar texto */
-  
+    line-height: 1.2;
+ 
 }
 
 .titulo_grafica_compound {
@@ -519,6 +536,46 @@ html {
         .custom-nav {
         display: flex;
         flex-direction: column;
+    }
+
+    .var_tru_text {
+        text-decoration: none;
+        color: white;
+        text-align:center;
+        font-family: storm-italic;
+        font-size: 0.80rem;
+        font-family: 'basker_italic';
+        line-height: 1.2;
+    }
+    
+    .var_ipadu_text {
+        text-decoration: none;
+        color: white;
+        text-align:center;
+        font-family: storm-italic;
+        font-size: 0.8rem;
+        font-family: 'basker_italic';
+        line-height: 1.1;
+    }
+    
+    .var_coca_text {
+        text-decoration: none;
+        color: white;
+        text-align:center;
+        font-family: storm-italic;
+        font-size: 0.8rem;
+        font-family: 'basker_italic';
+        line-height: 1.1;
+    }
+    
+    .var_novo_text {
+        text-decoration: none;
+        color: white;
+        text-align:center;
+        font-family: storm-italic;
+        font-size: 0.8rem;
+        font-family: 'basker_italic';
+        line-height: 1.2;
     }
 
 }
