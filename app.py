@@ -17,6 +17,9 @@ header = [
 
 nav= dbc.Nav(
                     [
+                        dbc.Col(
+                            width=1
+                        ),
                         dbc.DropdownMenu(
                             [
                                 dbc.DropdownMenuItem("¿Qué es la metabolómica?", header=False,
@@ -64,7 +67,6 @@ nav= dbc.Nav(
                             in_navbar=True,
                             label=dbc.NavLink("RESULTADOS", href="/khoka-results",style={'padding':0}),    
                         ),
-
                         dbc.DropdownMenu(
                             [
                                 dbc.DropdownMenuItem("Cromatografía de gases", header=False,
@@ -79,15 +81,20 @@ nav= dbc.Nav(
 #                        dbc.NavItem(dbc.NavLink("METODOLOGÍA", href="/khoka_methodology",style={'padding':0})),
                         dbc.NavItem(dbc.NavLink("CONCLUSIONES", href="#")),
                         dbc.DropdownMenu(
+                            class_name='glosary',
                             nav=True,
                             in_navbar=True,
                             label=dbc.NavLink("GLOSARIO", href="/khoka_glossary",style={'padding':0}),    
                         ),
 #                        dbc.NavItem(dbc.NavLink("GLOSARIO", href="#")),
                         dbc.DropdownMenu(
+                            class_name='bibliography',
                             nav=True,
                             in_navbar=True,
                             label=dbc.NavLink("BIBLIOGRAFÍA", href="/khoka_bibliography",style={'padding':0}),    
+                        ),
+                        dbc.Col(
+                            width=1
                         ),
 #                        dbc.NavItem(dbc.NavLink("BIBLIOGRAFÍA", href="#")),
                     ],
