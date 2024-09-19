@@ -84,7 +84,12 @@ nav= dbc.Nav(
                             label=dbc.NavLink("GLOSARIO", href="/khoka_glossary",style={'padding':0}),    
                         ),
 #                        dbc.NavItem(dbc.NavLink("GLOSARIO", href="#")),
-                        dbc.NavItem(dbc.NavLink("BIBLIOGRAFÍA", href="#")),
+                        dbc.DropdownMenu(
+                            nav=True,
+                            in_navbar=True,
+                            label=dbc.NavLink("BIBLIOGRAFÍA", href="/khoka_bibliography",style={'padding':0}),    
+                        ),
+#                        dbc.NavItem(dbc.NavLink("BIBLIOGRAFÍA", href="#")),
                     ],
                     style={'fontFamily': 'clutadella_light','backgroundColor': '#9abf99'},
                     justified=True,
