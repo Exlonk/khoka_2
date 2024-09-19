@@ -39,7 +39,7 @@ def area(variety,label):
 def description():
     description_block= [
         dbc.Row(html.Div("Cocaine",id='titulo_descripcion_compound',className="titulo_grafica_compound")),
-        dbc.Row(style={'height':'1rem'}),
+        dbc.Row(className="espaciado_24_esc espaciado_24_mov"),
         dbc.Row([dbc.Col(html.Img(id='compound_image',className="compound_images",src="../assets/structures/Cocaine.svg"),xs={"size":12},lg={"size":6},
                         ),
         dbc.Col(html.P('Se conoce también como benzoilmetilecgonina. Es un alcaloide tipo tropano y fuerte estimulante. \
@@ -73,21 +73,21 @@ portada =  dbc.Row(
                 )
 
 resultado = [dbc.Row([
-    dbc.Row(style={'height':'3rem'}),
+    dbc.Row(className="espaciado_96_esc espaciado_96_mov"),
     html.Div("RESULTADOS", className="body-title-green"),
     dbc.Container(
             [
             # CARACTERIZACION QUIMICA POR VARIEDADES
-            dbc.Row(style={'height':'6rem'}),
+            dbc.Row(className="espaciado_96_esc espaciado_96_mov"),
             dbc.Row("CARACTERIZACIÓN QUÍMICA DE LAS VARIEDADES DE LA COCA",className="results_title",id="caracterizacion"),
-            dbc.Row(style={'height':'2.4rem'}),
+            dbc.Row(className="espaciado_48_esc espaciado_48_mov"),
             dbc.Row("Explora el perfil químico de cada variedad de coca para conocer los metabolitos que contiene,\
                      cuáles tienen  actividad biológica y visualizar los cromatogramas de cada muestra estudiada.",style={'textAlign':'center'}),
-            dbc.Row(style={'height':'2.4rem'})],className="subcontainer-results"),
+            dbc.Row(className="espaciado_48_esc espaciado_48_mov")],className="subcontainer-results"),
     dbc.Row([
         dbc.Col(html.Img(src="/assets/trux.png", height="150px"), width=3,style={"padding":0}),
         dbc.Col(html.Img(src="/assets/ipadu.png", height="150px"), width=3,style={"padding":0}),
-        dbc.Col(html.Img(src="/assets/coca.png", height="150px"), width=3,style={"padding":0}),
+        dbc.Col(html.Img(src="/assets/coca.png", id="h-coca", height="150px"), width=3,style={"padding":0}),
         dbc.Col(html.Img(src="/assets/novo.png", height="150px"), width=3,style={"padding":0})
     ], justify="around"),
     dbc.Row(style={'height':'1rem'}),
@@ -108,29 +108,29 @@ resultado = [dbc.Row([
                     dcc.Store(id='clicked-button', data=None)
                     ],className="gap-1",justify="between"), 
     dbc.Container([
-            dbc.Row(style={'height':'2.4rem'}),
+            dbc.Row(className="espaciado_48_esc espaciado_48_mov"),
             dbc.Row("Este gráfico muestra todos los metabolitos encontrados en esta variedad de coca. \
                     Puedes seleccionar entre metabolitos primarios y secundarios, conocer su estructura molecular \
                     y aprender sobre ellos.",style={'textAlign':'center'}),
-            dbc.Row(style={'height':'2.4rem'}),
+            dbc.Row(className="espaciado_48_esc espaciado_48_mov"),
             ],className="subcontainer-results"),
     dbc.Row(html.Div(html.Div(id='all_compounds_treemap',className="treemap"))),
-    dbc.Row(style={'height':'2.4rem'}),
+    dbc.Row(className="espaciado_48_esc espaciado_48_mov"),
     dbc.Row(dbc.Col(html.Div(id='compound_description',className="compound_description"))),
-    dbc.Row(style={'height':'9rem'}),        
+    dbc.Row(className="espaciado_96_esc espaciado_96_mov"),        
     dbc.Container([    
             # COMPUESTOS BIOACTIVOS
             dbc.Row(html.Div("COMPUESTOS BIOACTIVOS", id="compuestos_bioactivos", className="results_title")),
-            dbc.Row(style={'height':'2.4rem'}),
+            dbc.Row(className="espaciado_48_esc espaciado_48_mov"),
             html.Div("Conoce los compuestos de esta variedad de coca que tienen actividad biológica, es decir, que pueden presentar efectos fisiológicos en el ser humano."),
             ],className="subcontainer-results"),
-    dbc.Row(style={'height':'4rem'}),
+    dbc.Row(className="espaciado_96_esc espaciado_96_mov"),
     dbc.Row(html.Div(id='classification')),
-    dbc.Row(style={'height':'9rem'}),
+    dbc.Row(className="espaciado_96_esc espaciado_96_mov"),
     dbc.Container([ 
             # CROMATOGRAMA
             dbc.Row(html.Div("CROMATOGRAMAS", id="cromatogramas", className="results_title")),
-            dbc.Row(style={'height':'4rem'}),
+            dbc.Row(className="espaciado_48_esc espaciado_48_mov"),
             html.Div("Este gráfico muestra los resultados de las lecturas cromatográficas de cada extracto \
                      analizado. Te permite visualizar por variedad de coca y tipo de extracto. El tiempo de \
                      retención indica la naturaleza química de la sustancia: un tiempo de retención corto \
@@ -138,7 +138,7 @@ resultado = [dbc.Row([
                      que se disuelven en agua, como azúcares o aminoácidos."),       
             
             ],className="subcontainer-results"),
-    dbc.Row(style={'height':'2rem'}),
+    dbc.Row(className="espaciado_24_esc espaciado_24_mov"),
     dbc.Row([dbc.Col(html.Div(id='area_compounds'),width={"size":12,"order":1})]),
     ], className="container-results")]
     
@@ -905,7 +905,6 @@ def update_button_styles(n_clicks1,n_clicks2,n_clicks3,n_clicks4):
         style_active = {"background-color": "#678849", "height": "3rem",
                     "display": "flex", "alignItems": "center", "justifyContent": "center"}
         return style_inactive, style_inactive, style_active, style_inactive
-    
     elif clicked_button == 'novo':
         style_active = {"background-color": "#95a823", "height": "3rem",
                     "display": "flex", "alignItems": "center", "justifyContent": "center"}
