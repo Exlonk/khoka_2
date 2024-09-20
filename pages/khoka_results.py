@@ -88,7 +88,7 @@ resultado = [dbc.Row([
     dbc.Row(style={'height':'1rem'}),
     dbc.Row([dbc.Col([
                         html.A(["Erythroxylum novogranatense ",html.Span(" var. ",className="var")," truxillense"],href=f"#all_compounds_treemap",
-                        className="var_tru_text",id="trux", n_clicks=0)],id="trux_box",className="var_tru_box"),
+                        className="var_tru_text",id="trux", n_clicks=0)],id="trux_box",className="var_trux_box"),
                     
                     dbc.Col([  
                         html.A(["Erythroxylum coca ",html.Span("var. ",className="var")," ipadu"],href=f"#all_compounds_treemap",
@@ -112,18 +112,21 @@ resultado = [dbc.Row([
     dbc.Row(html.Div(html.Div(id='all_compounds_treemap',className="treemap"))),
     dbc.Row(className="espaciado_48_esc espaciado_48_mov"),
     dbc.Row(dbc.Col(html.Div(id='compound_description',className="compound_description"))),
-    dbc.Row(className="espaciado_96_esc espaciado_96_mov"),        
+    dbc.Row(className="espaciado_96_esc espaciado_96_mov"),   
+    dbc.Row(className="espaciado_24_esc espaciado_24_mov"),    
+    dbc.Row(className="espaciado_24_esc espaciado_24_mov"), 
     dbc.Container([    
             # COMPUESTOS BIOACTIVOS
             dbc.Row(html.Div("COMPUESTOS BIOACTIVOS", id="compuestos_bioactivos", className="results_title")),
             dbc.Row(className="espaciado_48_esc espaciado_48_mov"),
             html.Div("Conoce los compuestos de esta variedad de coca que tienen actividad biológica, es decir, que pueden presentar efectos fisiológicos en el ser humano."),
             ],className="subcontainer-results"),
-    dbc.Row(className="espaciado_96_esc espaciado_96_mov"),
+    dbc.Row(className="espaciado_24_esc"),
     dbc.Row(html.Div(id='classification')),
     dbc.Row(className="espaciado_96_esc espaciado_96_mov"),
     dbc.Container([ 
             # CROMATOGRAMA
+            dbc.Row(className="espaciado_24_esc espaciado_24_mov"),
             dbc.Row(html.Div("CROMATOGRAMAS", id="cromatogramas", className="results_title")),
             dbc.Row(className="espaciado_48_esc espaciado_48_mov"),
             html.Div("Este gráfico muestra los resultados de las lecturas cromatográficas de cada extracto \
