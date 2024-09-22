@@ -109,7 +109,7 @@ conclusiones = dbc.Container(
                 dbc.Row(className="espaciado_96_esc espaciado_96_mov"),
 
 
-                html.Div(["Comparación de compuestos presentes en la literatura vs. los presentes en el jardín de ", html.Span("Khoka Project", className="italic-text"), "."],className="body-title-2",id="conclu_var-3"),
+                html.Div(["Comparación de compuestos presentes en la literatura vs. los presentes en el jardín de ", html.Span("Khoka Project", className="italic-text"), "."],className="body-title-2",id="conclu_compara"),
                 dbc.Row(className="espaciado_24_esc espaciado_24_mov"),
                 html.Div(["El análisis de las cuatro variedades de coca presentes en el bioarchivo de ", html.Span("Khoka Project", className="italic-text"), " reveló la identificación de dieciocho metabolitos secundarios, destacándose los alcaloides como el grupo predominante, seguidos por los ácidos hidroxicinámicos. Un hallazgo notable fue la presencia exclusiva de trans-cinnamoylcocaína, corroborando los informes de Plowman que indican una mayor incidencia de este isómero en comparación con la cis-cinnamoylcocaína, cuya ausencia también fue confirmada en todas las variedades estudiadas."]),
                 dbc.Row(className="espaciado_24_esc espaciado_24_mov"),
@@ -127,7 +127,7 @@ conclusiones = dbc.Container(
                 dbc.Row(className="espaciado_48_esc espaciado_48_mov"),
 
 
-                html.Div("Referencias Bibliográficas",className="body-title-2",id="conclu_resultados"),
+                html.Div("Referencias Bibliográficas",className="body-title-2",id="conclu_referen"),
                 dbc.Row(className="espaciado_24_esc espaciado_24_mov"),
                 html.Div(["Adams, R., Cristol, S. J., Anderson, A. A., & Albert, A. A. (1945). The structure of leucenol.", 
                           html.Span("I. Journal of the American Chemical Society",className="italic-text"),", 67, 89–92. https://doi.org/10.1021/ja01217a032"],className="body-biblio"),
