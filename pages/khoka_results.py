@@ -69,15 +69,15 @@ portada =  dbc.Row(
 
 resultado = [dbc.Row([
     dbc.Row(className="espaciado_96_esc espaciado_96_mov"),
-    html.Div("RESULTADOS", className="body-title-green"),
+    html.Div("RESULTS", className="body-title-green"),
+    dbc.Row([dbc.Col([
     dbc.Container(
             [
             # CARACTERIZACION QUIMICA POR VARIEDADES
             dbc.Row(className="espaciado_96_esc espaciado_96_mov"),
-            dbc.Row("CARACTERIZACIÓN QUÍMICA DE LAS VARIEDADES DE LA COCA",className="results_title",id="caracterizacion"),
+            dbc.Row("CHEMICAL CHARACTERIZATION BY VARIETY",className="results_title",id="caracterizacion"),
             dbc.Row(className="espaciado_48_esc espaciado_48_mov"),
-            dbc.Row("Explora el perfil químico de cada variedad de coca para conocer los metabolitos que contiene,\
-                     cuáles tienen  actividad biológica y visualizar los cromatogramas de cada muestra estudiada.",style={'textAlign':'center'}),
+            dbc.Row("Explore the chemical profile of each coca variety to learn about the metabolites they contain, which ones have biological activity, and visualize the chromatograms of each sample studied.",style={'textAlign':'center'}),
             dbc.Row(className="espaciado_48_esc espaciado_48_mov")],className="subcontainer-results"),
     dbc.Row([
         dbc.Col(html.Img(src="/assets/trux.png", height="150px"), width=3,style={"padding":0}),
@@ -88,7 +88,7 @@ resultado = [dbc.Row([
     dbc.Row(style={'height':'1rem'}),
     dbc.Row([dbc.Col([
                         html.A(["Erythroxylum novogranatense ",html.Span(" var. ",className="var")," truxillense"],href=f"#all_compounds_treemap",
-                        className="var_tru_text",id="trux", n_clicks=0)],id="trux_box",className="var_trux_box"),
+                        className="var_tru_text",id="trux", n_clicks=0)],id="trux_box",className="var_tru_box"),
                     
                     dbc.Col([  
                         html.A(["Erythroxylum coca ",html.Span("var. ",className="var")," ipadu"],href=f"#all_compounds_treemap",
@@ -104,40 +104,34 @@ resultado = [dbc.Row([
                     ],className="gap-1",justify="between"), 
     dbc.Container([
             dbc.Row(className="espaciado_48_esc espaciado_48_mov"),
-            dbc.Row("Este gráfico muestra todos los metabolitos encontrados en esta variedad de coca. \
-                    Puedes seleccionar entre metabolitos primarios y secundarios, conocer su estructura molecular \
-                    y aprender sobre ellos.",style={'textAlign':'center'}),
+            dbc.Row("This graph shows all the metabolites found in this coca variety. You can select between primary and secondary metabolites, view their molecular structure, and learn more about them.",style={'textAlign':'center'}),
             dbc.Row(className="espaciado_48_esc espaciado_48_mov"),
             ],className="subcontainer-results"),
     dbc.Row(html.Div(html.Div(id='all_compounds_treemap',className="treemap"))),
     dbc.Row(className="espaciado_48_esc espaciado_48_mov"),
-    dbc.Row(dbc.Col(html.Div(id='compound_description',className="compound_description"))),
     dbc.Row(className="espaciado_96_esc espaciado_96_mov"),   
     dbc.Row(className="espaciado_24_esc espaciado_24_mov"),    
     dbc.Row(className="espaciado_24_esc espaciado_24_mov"), 
     dbc.Container([    
             # COMPUESTOS BIOACTIVOS
-            dbc.Row(html.Div("COMPUESTOS BIOACTIVOS", id="compuestos_bioactivos", className="results_title")),
+            dbc.Row(html.Div("BIOACTIVE COMPOUNDS", id="compuestos_bioactivos", className="results_title")),
             dbc.Row(className="espaciado_48_esc espaciado_48_mov"),
-            html.Div("Conoce los compuestos de esta variedad de coca que tienen actividad biológica, es decir, que pueden presentar efectos fisiológicos en el ser humano."),
+            html.Div("Learn about the compounds in this coca variety that have biological activity, meaning they may have physiological effects on humans."),
             ],className="subcontainer-results"),
-    dbc.Row(className="espaciado_24_esc"),
+    dbc.Row(className="espaciado_24_esc espaciado_24_mov"),
     dbc.Row(html.Div(id='classification')),
     dbc.Row(className="espaciado_96_esc espaciado_96_mov"),
     dbc.Container([ 
             # CROMATOGRAMA
             dbc.Row(className="espaciado_24_esc espaciado_24_mov"),
-            dbc.Row(html.Div("CROMATOGRAMAS", id="cromatogramas", className="results_title")),
+            dbc.Row(html.Div("CHROMATOGRAM", id="cromatogramas", className="results_title")),
             dbc.Row(className="espaciado_48_esc espaciado_48_mov"),
-            html.Div("Este gráfico muestra los resultados de las lecturas cromatográficas de cada extracto \
-                     analizado. Te permite visualizar por variedad de coca y tipo de extracto. El tiempo de \
-                     retención indica la naturaleza química de la sustancia: un tiempo de retención corto \
-                     sugiere compuestos de naturaleza grasa, mientras que un tiempo largo indica compuestos \
-                     que se disuelven en agua, como azúcares o aminoácidos."),       
-            
+            html.Div("This chart shows the results of the chromatographic readings of each analyzed extract. It allows you to visualize the data by coca variety and extract type. The retention time indicates the chemical nature of the substance: a short retention time suggests compounds with a fatty nature, while a longer retention time indicates compounds that dissolve in water, such as sugars or amino acids."),            
             ],className="subcontainer-results"),
     dbc.Row(className="espaciado_24_esc espaciado_24_mov"),
-    dbc.Row([dbc.Col(html.Div(id='area_compounds'),width={"size":12,"order":1})]),
+    dbc.Row([dbc.Col(html.Div(id='area_compounds'),width={"size":12,"order":1})])],width=6),
+    
+    dbc.Col([html.Div(id='compound_description',className="compound_description",style={'position':'sticky','top':'6rem'})],style={'paddingTop':'3rem'}, width=6)]),
     ], className="container-results")]
     
 # Define the layout
@@ -189,7 +183,6 @@ def display_click_data(n_clicks1,n_clicks2,n_clicks3,n_clicks4):
         pagina_trux = True
         pagina_coca,pagina_ipadu,pagina_novo,pagina_khoka = False, False, False, False
 
-
     if ctx.triggered_id == 'coca' :
         fig_1 = treemap_layout()
         fig_2 = area('Coca','_coca')
@@ -233,23 +226,23 @@ def treemap_graph(value,n_clicks1,n_clicks2,n_clicks3,n_clicks4):
             opacidad = 1
             contador=1
             for i in [x for x in variety[k] if pd.isnull(x) == False and x != 'nan']:         
-                if k == "Saturados":
+                if k == "Saturated":
                     clasificacion = [x for x in variety[k] if pd.isnull(x) == False and x != 'nan']
                     # opacidad =   0.7
                     #color_palet[i]='rgba(117,68,40,'+str(opacidad)+')'
-                    color_palet["Saturados"]='rgba(134, 73, 117,'+str(opacidad)+')'
+                    color_palet["Saturated"]='rgba(134, 73, 117,'+str(opacidad)+')'
                     contador+=1
-                if k == "Insaturados":
+                if k == "Insaturated":
                     clasificacion = [x for x in variety[k] if pd.isnull(x) == False and x != 'nan']
-                    # opacidad = 1
+                    # opacidad = 1Insaturated
                     #color_palet[i]='rgba(199, 119, 28,'+str(opacidad)+')'
-                    color_palet["Insaturados"]='rgba(18, 9, 124, '+str(opacidad)+')'
+                    color_palet["Insaturated"]='rgba(18, 9, 124, '+str(opacidad)+')'
                     contador+=1
-                if k == "Ácidos":
+                if k == "Acids":
                     clasificacion = [x for x in variety[k] if pd.isnull(x) == False and x != 'nan']
                     # opacidad = 1
                     #color_palet[i]='rgba(77, 189, 132,'+str(opacidad)+')'
-                    color_palet['Ácidos']='rgba(0, 151, 131, '+str(opacidad)+')' 
+                    color_palet['Acids']='rgba(0, 151, 131, '+str(opacidad)+')' 
                     contador+=1
                 if k == "Bases":
                     clasificacion = [x for x in variety[k] if pd.isnull(x) == False and x != 'nan']
@@ -257,47 +250,47 @@ def treemap_graph(value,n_clicks1,n_clicks2,n_clicks3,n_clicks4):
                     #color_palet[i]='rgba(120, 51, 109,'+str(opacidad)+')'
                     color_palet['Bases']='rgba(36, 192, 187, '+str(opacidad)+')'
                     contador+=1
-                if k == "Alcoholes":
+                if k == "Alcohols":
                     clasificacion = [x for x in variety[k] if pd.isnull(x) == False and x != 'nan']
                     # opacidad = 1
                     #color_palet[i]='rgba(244, 111, 54,'+str(opacidad)+')'
-                    color_palet['Alcoholes']='rgba(184, 80, 117, '+str(opacidad)+')'
+                    color_palet['Alcohols']='rgba(184, 80, 117, '+str(opacidad)+')'
                     contador+=1
-                if k == "Aminoderivados":
+                if k == "Alcohols":
                     clasificacion = [x for x in variety[k] if pd.isnull(x) == False and x != 'nan']
                     # opacidad = 1
                     #color_palet[i]= 'rgba(191, 59, 33,'+str(opacidad)+')'
-                    color_palet['Aminoderivados']= 'rgba(87, 180, 110, '+str(opacidad)+')'
+                    color_palet['Alcohols']= 'rgba(87, 180, 110, '+str(opacidad)+')'
                     contador+=1
-                if k == "Amidas":
+                if k == "Amides":
                     clasificacion = [x for x in variety[k] if pd.isnull(x) == False and x != 'nan']
                     # opacidad = 1
                     #color_palet[i]='rgba(224, 182, 23,'+str(opacidad)+')' 
-                    color_palet['Amidas']='rgba(0, 132, 183, '+str(opacidad)+')'
+                    color_palet['Amides']='rgba(0, 132, 183, '+str(opacidad)+')'
                     contador+=1
-                if k == "Aldehídos":
+                if k == "Aldehydes":
                     clasificacion = [x for x in variety[k] if pd.isnull(x) == False and x != 'nan']
                     # opacidad = 1
                     #color_palet[i]= 'rgba(82, 154, 52,'+str(opacidad)+')'
-                    color_palet['Aldehídos']= 'rgba(255, 66, 135, '+str(opacidad)+')'
+                    color_palet['Aldehydes']= 'rgba(255, 66, 135, '+str(opacidad)+')'
                     contador+=1
-                if k == "Glúcidos":
+                if k == "Carbohydrates":
                     clasificacion = [x for x in variety[k] if pd.isnull(x) == False and x != 'nan']
                     # opacidad = 1
                     #color_palet[i]='rgba(219, 67, 88,'+str(opacidad)+')'
-                    color_palet['Glúcidos']='rgba(89, 147, 152, '+str(opacidad)+')'
+                    color_palet['Carbohydrates']='rgba(89, 147, 152, '+str(opacidad)+')'
                     contador+=1
-                if k == "Aminoácidos":
+                if k == "Amino acids":
                     clasificacion = [x for x in variety[k] if pd.isnull(x) == False and x != 'nan']
                     # opacidad = 1
                     #color_palet[i]='rgba(102, 206, 245,'+str(opacidad)+')' 
-                    color_palet["Aminoácidos"]='rgba(137, 147, 151, '+str(opacidad)+')' 
+                    color_palet["Amino acids"]='rgba(137, 147, 151, '+str(opacidad)+')' 
                     contador+=1
-                if k == "Alcaloides":
+                if k == "Alkaloids":
                     clasificacion = [x for x in variety[k] if pd.isnull(x) == False and x != 'nan']
                     # opacidad = 1
                     #color_palet[i]='rgba(36, 74, 143,'+str(opacidad)+')'
-                    color_palet["Alcaloides"]='rgba(89, 53, 140, '+str(opacidad)+')'
+                    color_palet["Alkaloids"]='rgba(89, 53, 140, '+str(opacidad)+')'
                     contador+=1
 
     if pagina_khoka == True:
@@ -528,25 +521,25 @@ def classification_(n_clicks):
     color_palet = {'(?)':"white"}
     for k in fila_cabecera[4:]:
             contador=1
-            opacidad = 1
+            opacidad = 1        
             for i in [x for x in variety[k] if pd.isnull(x) == False and x != 'nan']:         
-                if k == "Saturados":
+                if k == "Saturated":
                     clasificacion = [x for x in variety[k] if pd.isnull(x) == False and x != 'nan']
-                    #opacidad = 1
+                    # opacidad =   0.7
                     #color_palet[i]='rgba(117,68,40,'+str(opacidad)+')'
-                    color_palet["Saturados"]='rgba(134, 73, 117,'+str(opacidad)+')'
+                    color_palet["Saturated"]='rgba(134, 73, 117,'+str(opacidad)+')'
                     contador+=1
-                if k == "Insaturados":
+                if k == "Insaturated":
                     clasificacion = [x for x in variety[k] if pd.isnull(x) == False and x != 'nan']
-                    #opacidad = 1
+                    # opacidad = 1Insaturated
                     #color_palet[i]='rgba(199, 119, 28,'+str(opacidad)+')'
-                    color_palet["Insaturados"]='rgba(18, 9, 124, '+str(opacidad)+')'
+                    color_palet["Insaturated"]='rgba(18, 9, 124, '+str(opacidad)+')'
                     contador+=1
-                if k == "Ácidos":
+                if k == "Acids":
                     clasificacion = [x for x in variety[k] if pd.isnull(x) == False and x != 'nan']
-                    #opacidad = 1
+                    # opacidad = 1
                     #color_palet[i]='rgba(77, 189, 132,'+str(opacidad)+')'
-                    color_palet['Ácidos']='rgba(0, 151, 131, '+str(opacidad)+')' 
+                    color_palet['Acids']='rgba(0, 151, 131, '+str(opacidad)+')' 
                     contador+=1
                 if k == "Bases":
                     clasificacion = [x for x in variety[k] if pd.isnull(x) == False and x != 'nan']
@@ -554,47 +547,47 @@ def classification_(n_clicks):
                     #color_palet[i]='rgba(120, 51, 109,'+str(opacidad)+')'
                     color_palet['Bases']='rgba(36, 192, 187, '+str(opacidad)+')'
                     contador+=1
-                if k == "Alcoholes":
+                if k == "Alcohols":
                     clasificacion = [x for x in variety[k] if pd.isnull(x) == False and x != 'nan']
                     # opacidad = 1
                     #color_palet[i]='rgba(244, 111, 54,'+str(opacidad)+')'
-                    color_palet['Alcoholes']='rgba(184, 80, 117, '+str(opacidad)+')'
+                    color_palet['Alcohols']='rgba(184, 80, 117, '+str(opacidad)+')'
                     contador+=1
-                if k == "Aminoderivados":
+                if k == "Alcohols":
                     clasificacion = [x for x in variety[k] if pd.isnull(x) == False and x != 'nan']
                     # opacidad = 1
                     #color_palet[i]= 'rgba(191, 59, 33,'+str(opacidad)+')'
-                    color_palet['Aminoderivados']= 'rgba(87, 180, 110, '+str(opacidad)+')'
+                    color_palet['Alcohols']= 'rgba(87, 180, 110, '+str(opacidad)+')'
                     contador+=1
-                if k == "Amidas":
+                if k == "Amides":
                     clasificacion = [x for x in variety[k] if pd.isnull(x) == False and x != 'nan']
-                    opacidad = 1
+                    # opacidad = 1
                     #color_palet[i]='rgba(224, 182, 23,'+str(opacidad)+')' 
-                    color_palet['Amidas']='rgba(0, 132, 183, '+str(opacidad)+')'
+                    color_palet['Amides']='rgba(0, 132, 183, '+str(opacidad)+')'
                     contador+=1
-                if k == "Aldehídos":
+                if k == "Aldehydes":
                     clasificacion = [x for x in variety[k] if pd.isnull(x) == False and x != 'nan']
                     # opacidad = 1
                     #color_palet[i]= 'rgba(82, 154, 52,'+str(opacidad)+')'
-                    color_palet['Aldehídos']= 'rgba(255, 66, 135, '+str(opacidad)+')'
+                    color_palet['Aldehydes']= 'rgba(255, 66, 135, '+str(opacidad)+')'
                     contador+=1
-                if k == "Glúcidos":
+                if k == "Carbohydrates":
                     clasificacion = [x for x in variety[k] if pd.isnull(x) == False and x != 'nan']
-                    # pacidad = 1
+                    # opacidad = 1
                     #color_palet[i]='rgba(219, 67, 88,'+str(opacidad)+')'
-                    color_palet['Glúcidos']='rgba(89, 147, 152, '+str(opacidad)+')'
+                    color_palet['Carbohydrates']='rgba(89, 147, 152, '+str(opacidad)+')'
                     contador+=1
-                if k == "Aminoácidos":
+                if k == "Amino acids":
                     clasificacion = [x for x in variety[k] if pd.isnull(x) == False and x != 'nan']
                     # opacidad = 1
                     #color_palet[i]='rgba(102, 206, 245,'+str(opacidad)+')' 
-                    color_palet["Aminoácidos"]='rgba(137, 147, 151, '+str(opacidad)+')'
+                    color_palet["Amino acids"]='rgba(137, 147, 151, '+str(opacidad)+')' 
                     contador+=1
-                if k == "Alcaloides":
+                if k == "Alkaloids":
                     clasificacion = [x for x in variety[k] if pd.isnull(x) == False and x != 'nan']
                     # opacidad = 1
                     #color_palet[i]='rgba(36, 74, 143,'+str(opacidad)+')'
-                    color_palet["Alcaloides"]='rgba(89, 53, 140, '+str(opacidad)+')'
+                    color_palet["Alkaloids"]='rgba(89, 53, 140, '+str(opacidad)+')'
                     contador+=1
     if pagina_khoka:
         figura = 'khoka'
@@ -826,10 +819,12 @@ def display_hover(hoverData1,hoverData2,hoverData3):
         im_url = "/assets/structures/"+ compound +'.svg'
     
         children = [
+
             html.Img(
                 src=im_url,
                 style={"width": "200px"},
             ),
+            
         ]
         
         molecule_image="/assets/structures/"+ compound +'.svg'
