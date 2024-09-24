@@ -188,8 +188,8 @@ html {
 }
 
 .container-results {
-    margin-right: 22%; /* Ajustar el margen derecho de todo el diseño */
-    margin-left: 22%;
+    margin-right: 5%; /* Ajustar el margen derecho de todo el diseño */
+    margin-left: 5%;
     margin-top: 2rem;
     margin-bottom: 2rem;
     font-family: 'basker_120';
